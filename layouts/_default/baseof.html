@@ -34,7 +34,10 @@
     <footer>
         {{ range (where .Site.Pages "Section" "sekcje_stopki") }}
             {{ range .Pages }}
-                <div>{{ .Content }}</div>
+                <div>
+                    <h1>{{ .Title }}</h1>
+                    {{ .Content }}
+                </div>
             {{ end }}
         {{ end }}
     </footer>
