@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ .Title }}</title>
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="stylesheet" href="/baseof.css">
+</head>
+<body>
+    <header>
+        <a href="/">
+            <img src="/Logo-Maitri.png" alt="Logo Maitri">
+        </a>
+
+        <div class="section-buttons">
+            {{ range (where .Site.Pages "Section" "") }}
+                {{ range .Pages }}
+                    {{ if ne .Title "Sekcje_stopki" }}
+                        <a href="{{ .Permalink }}">
+                            <button>{{ .Title }}</button> 
+                        </a>
+                    {{ end }}
+                {{ end }}
+            {{ end }}
+        </div>
+    </header>
+
+    <main>
+        {{ block "main" . }} {{ end }}
+    </main>
+
+    <footer>
+        {{ range (where .Site.Pages "Section" "sekcje_stopki") }}
+            {{ range .Pages }}
+                <div>{{ .Content }}</div>
+            {{ end }}
+        {{ end }}
+    </footer>
+</body>
+</html>
