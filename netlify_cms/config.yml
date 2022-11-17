@@ -18,7 +18,7 @@ collections: # A list of collections the CMS should be able to edit
 
   - name: "aktualnosci"
     label: "Aktualności"
-    folder: "content/aktualności" 
+    folder: "content/aktualnosci" 
     create: true 
     fields: 
       - {label: "Tytuł", name: "title", widget: "string"}
