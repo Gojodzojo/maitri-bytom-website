@@ -1,6 +1,6 @@
 ---
 title: "Kontakt"
-draft: false
+header_position: 5
 ---
 
 W tym pliku można określić dane kontaktowe.

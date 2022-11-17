@@ -13,13 +13,15 @@
         </a>
 
         <div class="section-buttons">
-            {{ range (where .Site.Pages "Section" "") }}
-                {{ range .Pages }}
-                    {{ if ne .Title "Sekcje_stopki" }}
-                        <a href="{{ .Permalink }}">
-                            <button>{{ .Title }}</button> 
-                        </a>
-                    {{ end }}
+            <a href="/aktualnosci">
+                <button>Aktualności</button> 
+            </a>
+
+            {{ range (where .Site.Pages "Section" "strony_gornego_paska") }}
+                {{ range sort .Pages ".Params.header_position"}}
+                    <a href="{{ .Permalink }}">
+                        <button>{{ .Title }}</button> 
+                    </a>
                 {{ end }}
             {{ end }}
         </div>
