@@ -1,5 +1,6 @@
 ---
 title: "Artykuł_4"
+author: "Mateusz Goik"
 date: 2022-11-16T18:38:36+01:00
 draft: false
 ---

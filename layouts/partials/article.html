@@ -1,0 +1,11 @@
+<link rel="stylesheet" href="/article.css">
+<div class="article">
+    <h1>{{ .Title }}</h1>
+    {{ if ne .Params.date  nil}}
+        <h4>
+            {{ .Params.author }} <br>
+            {{ dateFormat "2.1.2006 15:04" .Params.date }} 
+        </h4>
+    {{ end }}
+    {{ .Content }}
+</div>
