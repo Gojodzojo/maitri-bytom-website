@@ -2,7 +2,7 @@
 title: Adopcja Serca
 header_position: 2
 ---
-## NA CZYM POLEGA ADOPCJA SERCA
+### NA CZYM POLEGA ADOPCJA SERCA
 
 Adopcja serca jest moralnym zobowiązaniem do niesienia pomocy konkretnemu, znanemu z imienia i nazwiska dziecku w Afryce. Celem Adopcji jest ratowanie sierot i dzieci ze skrajnie ubogich rodzin od śmierci z głodu i chorób oraz zapewnienie środków na naukę i przygotowanie dziecka do samodzielnego życia. W praktyce oznacza to stały patronat nad dzieckiem. Otrzymuje jego zdjęcie, kwestionariusz zawierający informacje o sytuacji dziecka, może nawiązać z nim kontakt listowny i tym samym wpływać na kształtowanie jego świadomości.
 
