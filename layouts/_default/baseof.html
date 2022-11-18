@@ -8,20 +8,27 @@
 </head>
 <body>
     <header>
-        <a href="/">
+        <a href="/" class="logo">
             <img src="/Logo-Maitri.png" alt="Logo Maitri">
         </a>
 
         <div class="section-buttons">
-            <a href="/aktualnosci">
-                <button>Aktualności</button> 
-            </a>
+            {{ $currentPage := .Permalink }}
+            <a
+                href="/"
+                {{ if eq $currentPage ( .GetPage "/" ).Permalink }} class="active-section" {{ end }}
+            >Strona Główna</a>
+            <a
+                href="/aktualnosci"
+                {{ if eq $currentPage ( .GetPage "/aktualnosci" ).Permalink }} class="active-section" {{ end }}
+            >Aktualności</a>
 
             {{ range (where .Site.Pages "Section" "strony_gornego_paska") }}
                 {{ range sort .Pages ".Params.header_position"}}
-                    <a href="{{ .Permalink }}">
-                        <button>{{ .Title }}</button> 
-                    </a>
+                    <a
+                        href="{{ .Permalink }}"
+                        {{ if eq $currentPage .Permalink }} class="active-section" {{ end }}
+                    >{{ .Title }}</a>
                 {{ end }}
             {{ end }}
         </div>
