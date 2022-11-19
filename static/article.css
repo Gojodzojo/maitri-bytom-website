@@ -1,3 +1,7 @@
-.article {
+article {
     padding: 10vh 15vw;
+}
+
+article h1 {
+    margin-bottom: 2em;
 }

@@ -1,8 +1,47 @@
 {{ define "main" }}
-    {{ .Content }} 
-    {{ range .Pages }}
-        <a href="{{ .Permalink }}">
-            <h1>{{ .Title }}</h1>
-        </a>
-    {{ end }}
+    <link rel="stylesheet" href="/list.css">
+    <div class="list">
+        <h1>{{ .Title }}</h1>
+
+        {{ range .Paginator.Pages }}
+            <article class="article-list-item">
+                <img src="{{ .Params.image }}" alt="{{ .Title }} image">
+                <div>
+                    <a href="{{ .Permalink }}">
+                        <h2>{{ .Title }}</h2>
+                    </a>
+
+                    {{ if ne .Params.date  nil}}
+                        <h4>{{ dateFormat "2.1.2006 15:04" .Params.date }}</h4>
+                    {{ end }}
+
+                    <p class="article-description">
+                        {{ .Content | plainify | truncate 500 }}
+                    </p>
+                </div>
+            </article>
+        {{ end }}
+
+        {{ $pag := .Paginator }}
+        {{ if gt $pag.TotalPages 1 }}            
+            <nav>
+                {{ if $pag.HasPrev }}
+                    <a href="{{ $pag.Prev.URL }}"> &laquo; </a>
+                {{ end }}
+
+                {{ range $pag.Pagers }}
+                    <a
+                        href="{{ .URL }}"
+                        {{ if eq $pag . }} class="active-page" {{ end }}
+                    >{{ .PageNumber }}</a>
+                {{ end }}
+
+                {{ if $pag.HasNext }}
+                    <a href="{{ $pag.Next.URL }}"> &raquo; </a>
+                {{ end }}
+            </nav>
+        {{ end }}
+    </div>
+    
 {{ end }}
+

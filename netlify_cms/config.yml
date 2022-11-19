@@ -22,11 +22,11 @@ collections: # A list of collections the CMS should be able to edit
     folder: "content/aktualnosci" 
     create: true 
     fields: 
+      - {label: "Zdjęcie artykułu", name: "image", widget: "image", allow_multiple: false}
       - {label: "Tytuł", name: "title", widget: "string"}
       - {label: "Data publikacji", name: "date", widget: "datetime"}
       - {label: "Autor", name: "author", widget: "string"}
       - {label: "Tagi oddzielone przecinkiem", name: "tags", widget: "list"}
-      - {label: "Zdjęcie artykułu", name: "image", widget: "image", allow_multiple: false}
       - {label: "Treść", name: "body", widget: "markdown"}
       - {label: "Galeria zdjęć", name: "image_gallery", widget: "list", required: false, summary: '{{fields.image}}', collapsed: true, label_singular: "image", field: {label: "Zdjęcie", name: image, widget: image}}
 
