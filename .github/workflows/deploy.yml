@@ -19,5 +19,8 @@ jobs:
       - name: Build
         run: hugo --minify
 
+      - name: Install lftp
+        run: sudo apt install lftp
+
       - name: Deploy
-        run: sudo apt install lftp && cd public && lftp -u "${{ secrets.FTP_USERNAME }}","${{ secrets.FTP_PASSWORD }}" "${{ secrets.FTP_HOSTNAME }}" -e "mirror -c -e -R; exit"
+        run:  cd public && lftp -u "${{ secrets.FTP_USERNAME }}","${{ secrets.FTP_PASSWORD }}" "${{ secrets.FTP_HOSTNAME }}" -e "mirror -c -e -R -x .ftpquota; exit"
