@@ -20,4 +20,4 @@ jobs:
         run: hugo --minify
 
       - name: Deploy
-        run: sudo apt install lftp && cd public lftp -u "${{ secrets.FTP_USERNAME }}","${{ secrets.FTP_PASSWORD }" "${{ secrets.FTP_HOSTNAME }}" -e "mirror -c -e -R; exit"
+        run: sudo apt install lftp && cd public lftp -u "${{ secrets.FTP_USERNAME }}","${{ secrets.FTP_PASSWORD }}" "${{ secrets.FTP_HOSTNAME }}" -e "mirror -c -e -R; exit"
