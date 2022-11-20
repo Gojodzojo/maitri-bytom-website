@@ -1,0 +1,23 @@
+name: deploy
+
+on: 
+  push:
+    branches: ["main"]
+
+runs-on: ubuntu-22.04
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Setup Hugo
+        uses: peaceiris/actions-hugo@v2
+        with:
+          hugo-version: 'latest'
+          extended: true
+
+      - name: Build
+        run: hugo --minify
+
+      - name: Deploy
+        run: sudo apt install lftp
+        run: cd public
+        run: lftp -u "${{ secrets.FTP_USERNAME }}","${{ secrets.FTP_PASSWORD }" "${{ secrets.FTP_HOSTNAME }}" -e "mirror -c -e -R; exit"
