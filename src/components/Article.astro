@@ -2,11 +2,11 @@
 import type { MarkdownInstance } from "astro";
 
 export interface Props {
-    article: MarkdownInstance<Record<string, any>>
+    markdown: MarkdownInstance<Record<string, any>>
 }
 
-const { article } = Astro.props;
-const { Content, frontmatter } = article;
+const { markdown } = Astro.props;
+const { Content, frontmatter } = markdown;
 const { title, date, author, image_gallery } = frontmatter;
 
 ---

@@ -6,5 +6,5 @@ const indexMarkdown = (await Astro.glob("../content/index.md"))[0]
 ---
 
 <Base title="Strona główna">
-	<Article article={indexMarkdown} />
+	<Article markdown={indexMarkdown} />
 </Base>

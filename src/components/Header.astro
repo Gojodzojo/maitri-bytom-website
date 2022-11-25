@@ -1,5 +1,7 @@
 ---
-const headerPages = (await Astro.glob("../content/strony_gornego_paska/*.md")).sort((a, b) => a.frontmatter.header_position - b.frontmatter.header_position)
+import { makeSlug } from "../scripts/makeSlug";
+
+const headerPages = (await Astro.glob("../content/header_pages/*.md")).sort((a, b) => a.frontmatter.header_position - b.frontmatter.header_position)
 const pathname = new URL(Astro.request.url).pathname;
 const currentPath = pathname.slice(1);
 ---
@@ -11,11 +13,12 @@ const currentPath = pathname.slice(1);
 
     <div class="section-buttons">
         <a href="/" class={ currentPath === "" ? "active-section" : ""}>Strona Główna</a>
-        <a href="/aktualnosci" class={ currentPath === "/aktualnosci" ? "active-section" : ""}>Aktualności</a>
+        <a href="/news" class={ currentPath === "news" ? "active-section" : ""}>Aktualności</a>
 
-        { headerPages.map(({ frontmatter, file }) => (
-            <a href={file} class={ currentPath === "/" ? "active-section" : ""}>{ frontmatter.title }</a>
-        ))}
+        { headerPages.map(({ frontmatter }) => {
+            const pagePath = `header-pages/${makeSlug(frontmatter)}`
+            return <a href={`/${pagePath}`} class={ currentPath === pagePath ? "active-section" : ""}>{ frontmatter.title }</a>
+        })}
     </div>
 </header>
 
