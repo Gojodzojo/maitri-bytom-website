@@ -1,0 +1,43 @@
+---
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+
+export interface Props {
+	title: string;
+}
+
+const { title } = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <title>{ title } - Maitri Bytom</title>
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="stylesheet" href="/baseof.css">
+</head>
+<body>
+    <Header />
+    <main>
+        <slot></slot>
+    </main>
+    <Footer />
+
+    <style>
+        body {
+            font-family: 'Open Sans', sans-serif;               
+            line-height: 1.7em;
+            margin: 0;
+            width: 100%;
+            min-height: 100vh;
+        }
+
+        main {
+            margin-top: 8vh;
+            width: 100%;                                                                                                                                                                                             
+            min-height: 92vh;
+        } 
+    </style>
+</body>
+</html>

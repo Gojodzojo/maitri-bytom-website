@@ -1,0 +1,38 @@
+---
+import type { MarkdownInstance } from "astro";
+
+export interface Props {
+    article: MarkdownInstance<Record<string, any>>
+}
+
+const { article } = Astro.props;
+const { Content, frontmatter } = article;
+const { title, date, author, image_gallery } = frontmatter;
+
+---
+
+<article>
+    <h1>{ title }</h1>
+
+      
+    <h4>
+        { date && new Date(date).toLocaleDateString() }
+        { author }
+    </h4>
+
+    <Content />
+
+    <!-- {{ with .Params.image_gallery }}
+        {{ partial "image_slider" . }}
+    {{ end }} -->
+</article>
+
+<style>
+    article {
+        padding: 10vh 15vw;
+    }
+
+    article h1 {
+        margin-bottom: 2em;
+    }
+</style>

@@ -1,0 +1,10 @@
+---
+import Article from "../components/Article.astro";
+import Base from "../layouts/Base.astro";
+
+const indexMarkdown = (await Astro.glob("../content/index.md"))[0]
+---
+
+<Base title="Strona główna">
+	<Article article={indexMarkdown} />
+</Base>
