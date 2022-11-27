@@ -1,0 +1,23 @@
+---
+import type { GetStaticPathsOptions, MarkdownInstance, Page } from "astro";
+import List from "../../layouts/List.astro";
+
+export interface Props {
+    title: string;
+    page: Page<MarkdownInstance<Record<string, any>>>;
+}
+
+export async function getStaticPaths({ paginate }: GetStaticPathsOptions) {
+    const pages = (await Astro.glob("../../content/news/*.md")).sort(
+        (a, b) =>
+            new Date(b.frontmatter.date).getTime() -
+            new Date(a.frontmatter.date).getTime()
+    );
+
+    return paginate(pages, { pageSize: 10 });
+}
+
+const { page } = Astro.props;
+---
+
+<List page={page} title="Aktualności" />

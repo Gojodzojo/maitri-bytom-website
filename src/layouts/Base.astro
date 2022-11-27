@@ -19,20 +19,10 @@ const { title } = Astro.props;
 </head>
 <body>
     <Header />
-    <main>
-        <slot></slot>
-    </main>
+    <main><slot/></main>
     <Footer />
 
     <style>
-        body {
-            font-family: 'Open Sans', sans-serif;               
-            line-height: 1.7em;
-            margin: 0;
-            width: 100%;
-            min-height: 100vh;
-        }
-
         main {
             margin-top: 8vh;
             width: 100%;                                                                                                                                                                                             

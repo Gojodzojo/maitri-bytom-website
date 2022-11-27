@@ -1,0 +1,49 @@
+---
+import type { MarkdownInstance } from "astro";
+import { makeSlug } from "../scripts/makeSlug";
+import { stripHtmlTags } from "../scripts/stripHtmlTags";
+import { truncate } from "../scripts/truncate";
+
+export interface Props {
+    markdown: MarkdownInstance<Record<string, any>>;
+}
+
+const { markdown } = Astro.props;
+const { compiledContent, frontmatter } = markdown;
+const { title, date, image } = frontmatter;
+---
+
+<article class="article-list-item">
+    <img src={image} alt={`${title} image`} />
+    <div>
+        <a href={`/${makeSlug(frontmatter)}`}>
+            <h2>{title}</h2>
+        </a>
+
+        <h4>
+            {new Date(date).toLocaleDateString("pl")}
+        </h4>
+
+        <p class="article-description">
+            {truncate(stripHtmlTags(compiledContent()), 500)}
+        </p>
+    </div>
+</article>
+
+<style>
+    .article-list-item {
+        display: flex;
+        margin-top: 30px;
+    }
+
+    .article-list-item img {
+        aspect-ratio: 1;
+        height: 200px;
+        margin: 0 40px;
+        margin-left: 0;
+    }
+
+    .article-list-item h2 {
+        margin-block-start: 0;
+    }
+</style>

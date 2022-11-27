@@ -1,24 +1,41 @@
 ---
 import { makeSlug } from "../scripts/makeSlug";
 
-const headerPages = (await Astro.glob("../content/header_pages/*.md")).sort((a, b) => a.frontmatter.header_position - b.frontmatter.header_position)
+const headerPages = (await Astro.glob("../content/header_pages/*.md")).sort(
+    (a, b) => a.frontmatter.header_position - b.frontmatter.header_position
+);
 const pathname = new URL(Astro.request.url).pathname;
 const currentPath = pathname.slice(1);
 ---
 
 <header>
     <a href="/" class="logo">
-        <img src="/Logo-Maitri.png" alt="Logo Maitri">
+        <img src="/Logo-Maitri.png" alt="Logo Maitri" />
     </a>
 
     <div class="section-buttons">
-        <a href="/" class={ currentPath === "" ? "active-section" : ""}>Strona Główna</a>
-        <a href="/news" class={ currentPath === "news" ? "active-section" : ""}>Aktualności</a>
+        <a href="/" class={currentPath === "" ? "active-section" : ""}
+            >Strona Główna</a
+        >
+        <a
+            href="/news/1"
+            class={currentPath.includes("news") ? "active-section" : ""}
+            >Aktualności</a
+        >
 
-        { headerPages.map(({ frontmatter }) => {
-            const pagePath = `header-pages/${makeSlug(frontmatter)}`
-            return <a href={`/${pagePath}`} class={ currentPath === pagePath ? "active-section" : ""}>{ frontmatter.title }</a>
-        })}
+        {
+            headerPages.map(({ frontmatter }) => {
+                const pagePath = makeSlug(frontmatter);
+                return (
+                    <a
+                        href={`/${pagePath}`}
+                        class={currentPath === pagePath ? "active-section" : ""}
+                    >
+                        {frontmatter.title}
+                    </a>
+                );
+            })
+        }
     </div>
 </header>
 
@@ -48,10 +65,11 @@ const currentPath = pathname.slice(1);
     .section-buttons a {
         margin-right: 20px;
         color: black;
-        transition: color .2s;
+        transition: color 0.2s;
     }
 
-    .active-section, .section-buttons a:hover {
+    .active-section,
+    .section-buttons a:hover {
         color: #be8a1c !important;
     }
 </style>
