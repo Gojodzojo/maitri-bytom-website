@@ -3,8 +3,11 @@
 
     let currentImageIndex = 0;
 
-    $: if (currentImageIndex < 0) currentImageIndex = images.length - 1;
-    $: if (currentImageIndex >= images.length) currentImageIndex = 0;
+    $: if (currentImageIndex < 0) {
+        currentImageIndex = images.length - 1;
+    } else if (currentImageIndex >= images.length) {
+        currentImageIndex = 0;
+    }
 </script>
 
 <div class="image-slider">
@@ -12,12 +15,8 @@
         class="image"
         style="background-image: url({images[currentImageIndex]});"
     >
-        <div class="slider-btn" on:click={() => currentImageIndex--}>
-            &laquo;
-        </div>
-        <div class="slider-btn" on:click={() => currentImageIndex++}>
-            &raquo;
-        </div>
+        <button on:click={() => currentImageIndex--}> &laquo; </button>
+        <button on:click={() => currentImageIndex++}> &raquo; </button>
     </div>
 </div>
 
@@ -41,8 +40,9 @@
         background-position: center;
     }
 
-    .slider-btn {
+    button {
         background-color: white;
+        border: none;
         padding: 10px;
         font-size: xx-large;
         font-weight: bolder;
@@ -50,7 +50,7 @@
         opacity: 0.7;
     }
 
-    .slider-btn:hover {
+    button:hover {
         cursor: pointer;
     }
 </style>
