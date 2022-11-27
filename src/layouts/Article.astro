@@ -1,6 +1,7 @@
 ---
 import type { MarkdownInstance } from "astro";
 import Base from "./Base.astro";
+import ImageSlider from "../components/ImageSlider.svelte";
 
 export interface Props {
     markdown: MarkdownInstance<Record<string, any>>;
@@ -27,9 +28,7 @@ const { title, date, author, image_gallery } = frontmatter;
 
         <Content />
 
-        <!-- {{ with .Params.image_gallery }}
-            {{ partial "image_slider" . }}
-        {{ end }} -->
+        {image_gallery && <ImageSlider client:idle images={image_gallery} />}
     </article>
 </Base>
 <style>
