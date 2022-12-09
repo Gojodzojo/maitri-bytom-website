@@ -41,7 +41,7 @@ collections: # A list of collections the CMS should be able to edit
   - name: "strona_glowna"
     label: "Strona główna"
     files: 
-    - file: "src/content/_index.md"  
+    - file: "src/content/index.md"  
       name: "strona_glowna"
       label: "Strona główna"
       fields: 
