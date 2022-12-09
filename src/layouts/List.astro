@@ -1,0 +1,33 @@
+---
+import type { Page } from "astro";
+import ArticleListItem from "../components/ArticleListItem.astro";
+import Pagination from "../components/Pagination.astro";
+import type { ArticleMarkdown } from "../scripts/types";
+import Base from "./Base.astro";
+
+export interface Props {
+  title: string;
+  description: string;
+  page: Page<ArticleMarkdown>;
+}
+
+const { page, title, description } = Astro.props;
+---
+
+<Base title={title} description={description}>
+  <div class="list">
+    <h1>{title}</h1>
+    {page.data.map((markdown) => <ArticleListItem markdown={markdown} />)}
+  </div>
+  <Pagination page={page} />
+</Base>
+
+<style>
+  .list {
+    padding: 10vh 15vw;
+  }
+
+  .list h1 {
+    margin-bottom: 2em;
+  }
+</style>

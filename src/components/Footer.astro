@@ -1,0 +1,33 @@
+---
+import type { ArticleMarkdown } from "../scripts/types";
+
+const footerSections = await Astro.glob("../content/footer_sections/*.md") as ArticleMarkdown[]
+---
+
+<footer>
+    { footerSections.map(({ Content, frontmatter }) => (
+        <div>
+            <h1>{ frontmatter.title }</h1>
+            <Content />
+        </div>
+    ))}
+</footer>
+
+<style>
+    footer {
+        width: 100%;
+        display: flex;
+        justify-content: space-evenly;
+        background-color: #141414;
+        padding: 50px 5vw;
+    }
+
+    footer div {
+        width: 20vw;
+        color: white;    
+    }
+
+    footer div li {
+        margin: 5px 0;
+    }
+</style>

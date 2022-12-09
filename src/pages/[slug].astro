@@ -1,0 +1,29 @@
+---
+import Article from "../layouts/Article.astro";
+import { makeSlug } from "../scripts/makeSlug";
+import type { ArticleMarkdown } from "../scripts/types";
+
+export interface Props {
+    markdown: ArticleMarkdown;
+}
+
+export async function getStaticPaths() {
+    const markdowns = [
+        ...(await Astro.glob("../content/news/*.md")),
+        ...(await Astro.glob("../content/header_pages/*.md")),
+    ] as ArticleMarkdown[];
+
+    return markdowns.map((markdown) => ({
+        params: {
+            slug: makeSlug(markdown.frontmatter),
+        },
+        props: {
+            markdown,
+        },
+    }));
+}
+
+const { markdown } = Astro.props;
+---
+
+<Article markdown={markdown} />

@@ -1,0 +1,55 @@
+---
+import type { Page } from "astro";
+
+export interface Props {
+    page: Page<unknown>;
+}
+
+const { page } = Astro.props;
+const { lastPage, url, currentPage: currentPageNumber } = page;
+const { prev, next, current: currentUrl } = url;
+
+function nthPageUrl(n: number) {
+    return currentUrl.split(currentPageNumber.toString()).join(n.toString());
+}
+---
+
+{
+    lastPage !== 1 && (
+        <nav>
+            {prev && <a href={prev}> &laquo; </a>}
+
+            {[...new Array(lastPage).keys()].map((i) => (
+                <a
+                    href={nthPageUrl(i + 1)}
+                    class={i + 1 === currentPageNumber ? "active-page" : ""}
+                >
+                    {i + 1}
+                </a>
+            ))}
+
+            {next && <a href={next}> &raquo; </a>}
+        </nav>
+    )
+}
+
+<style>
+    nav {
+        margin-top: 50px;
+        display: flex;
+        justify-content: center;
+    }
+
+    nav a {
+        font-family: "Merriweather", serif;
+        font-size: 20px;
+        margin: 0 10px;
+        color: black;
+        transition: color 0.2s;
+    }
+
+    .active-page,
+    nav a:hover {
+        color: #be8a1c !important;
+    }
+</style>

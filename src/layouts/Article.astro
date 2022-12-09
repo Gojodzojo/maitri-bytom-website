@@ -1,0 +1,43 @@
+---
+import Base from "./Base.astro";
+import ImageSlider from "../components/ImageSlider.svelte";
+import type { ArticleMarkdown } from "../scripts/types";
+import { makeDescription } from "../scripts/makeDescription";
+
+export interface Props {
+  markdown: ArticleMarkdown;
+}
+
+const { markdown } = Astro.props;
+const { Content, frontmatter, compiledContent } = markdown;
+const { title, date, author, image_gallery } = frontmatter;
+---
+
+<Base title={title} description={makeDescription(compiledContent())}>
+  <article>
+    <h1>{title}</h1>
+
+    {
+      author && date && (
+        <h4>
+          {author}
+          <br />
+          {new Date(date).toLocaleDateString("pl")}
+        </h4>
+      )
+    }
+
+    <Content />
+
+    {image_gallery && <ImageSlider client:load images={image_gallery} />}
+  </article>
+</Base>
+<style>
+  article {
+    padding: 10vh 15vw;
+  }
+
+  article h1 {
+    margin-bottom: 2em;
+  }
+</style>
