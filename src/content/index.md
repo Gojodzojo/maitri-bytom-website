@@ -1,4 +1,4 @@
 ---
-title: Test tytułu
+title: Strona główna
 ---
-To jest plik ze stroną główną.test
+Strona w przebudowie 👷‍♂️👷‍♀️
