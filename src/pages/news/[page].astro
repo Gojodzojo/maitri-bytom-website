@@ -1,10 +1,11 @@
 ---
-import type { GetStaticPathsOptions, MarkdownInstance, Page } from "astro";
+import type { GetStaticPathsOptions, Page } from "astro";
 import List from "../../layouts/List.astro";
+import type { ArticleMarkdown } from "../../scripts/types";
 
 export interface Props {
     title: string;
-    page: Page<MarkdownInstance<Record<string, any>>>;
+    page: Page<ArticleMarkdown>;
 }
 
 export async function getStaticPaths({ paginate }: GetStaticPathsOptions) {
@@ -12,7 +13,7 @@ export async function getStaticPaths({ paginate }: GetStaticPathsOptions) {
         (a, b) =>
             new Date(b.frontmatter.date).getTime() -
             new Date(a.frontmatter.date).getTime()
-    );
+    )  as ArticleMarkdown[];
 
     return paginate(pages, { pageSize: 10 });
 }

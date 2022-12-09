@@ -1,11 +1,13 @@
 ---
-const footerSections = await Astro.glob("../content/footer_sections/*.md")
+import type { ArticleMarkdown } from "../scripts/types";
+
+const footerSections = await Astro.glob("../content/footer_sections/*.md") as ArticleMarkdown[]
 ---
 
 <footer>
     { footerSections.map(({ Content, frontmatter }) => (
         <div>
-            <h1>{ frontmatter.title}</h1>
+            <h1>{ frontmatter.title }</h1>
             <Content />
         </div>
     ))}

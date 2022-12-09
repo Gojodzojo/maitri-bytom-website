@@ -1,17 +1,17 @@
 ---
-import type { MarkdownInstance } from "astro";
 import Article from "../layouts/Article.astro";
 import { makeSlug } from "../scripts/makeSlug";
+import type { ArticleMarkdown } from "../scripts/types";
 
 export interface Props {
-    markdown: MarkdownInstance<Record<string, any>>;
+    markdown: ArticleMarkdown;
 }
 
 export async function getStaticPaths() {
     const markdowns = [
         ...(await Astro.glob("../content/news/*.md")),
         ...(await Astro.glob("../content/header_pages/*.md")),
-    ];
+    ] as ArticleMarkdown[];
 
     return markdowns.map((markdown) => ({
         params: {

@@ -1,11 +1,11 @@
 ---
-import type { MarkdownInstance } from "astro";
 import { makeSlug } from "../scripts/makeSlug";
 import { stripHtmlTags } from "../scripts/stripHtmlTags";
 import { truncate } from "../scripts/truncate";
+import type { ArticleMarkdown } from "../scripts/types";
 
 export interface Props {
-    markdown: MarkdownInstance<Record<string, any>>;
+    markdown: ArticleMarkdown;
 }
 
 const { markdown } = Astro.props;
@@ -21,7 +21,7 @@ const { title, date, image } = frontmatter;
         </a>
 
         <h4>
-            {new Date(date).toLocaleDateString("pl")}
+            {new Date(date!).toLocaleDateString("pl")}
         </h4>
 
         <p class="article-description">
