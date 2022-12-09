@@ -6,7 +6,16 @@ export function makeSlug(frontmatter: Record<string, any>) {
         slug = date + '-'
     }
 
-    const title = frontmatter.title.split(' ').join('-')
+    // https://stackoverflow.com/questions/990904/remove-accents-diacritics-in-a-string-in-javascript
+    const title: string = frontmatter
+        .title
+        .split(' ')
+        .join('-')
+        .toLowerCase()
+        .normalize('NFD')
+        .replace(/[\u0300-\u036f]/g, "")
+        .replace(/\u0142/g, "l")
+    
     slug += title
 
     return slug;
