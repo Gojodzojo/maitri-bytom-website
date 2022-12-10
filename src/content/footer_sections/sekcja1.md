@@ -1,7 +1,9 @@
 ---
 title: Dane adresowe
+footer_position: 1
 ---
-**Biuro koordynacyjne programu Adopcja Serca**  
+
+**Biuro koordynacyjne programu Adopcja Serca**
 
 Stowarzyszenie Ruchu MAITRI\
 Organizacja Pożytku Publicznego (OPP)\

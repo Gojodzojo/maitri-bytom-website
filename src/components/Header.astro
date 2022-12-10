@@ -3,74 +3,75 @@ import { makeSlug } from "../scripts/makeSlug";
 import type { ArticleMarkdown } from "../scripts/types";
 
 const headerPages = (await Astro.glob("../content/header_pages/*.md")).sort(
-    (a, b) => a.frontmatter.header_position - b.frontmatter.header_position
-)  as ArticleMarkdown[];
+  (a, b) => a.frontmatter.header_position - b.frontmatter.header_position
+) as ArticleMarkdown[];
 const pathname = new URL(Astro.request.url).pathname;
 const currentPath = pathname.slice(1);
 ---
 
 <header>
-    <a href="/" class="logo">
-        <img src="/Logo-Maitri.png" alt="Logo Maitri" />
+  <a href="/" class="logo">
+    <img src="/Logo-Maitri.png" alt="Logo Maitri" />
+  </a>
+
+  <div class="section-buttons">
+    <a href="/" class={currentPath === "" ? "active-section" : ""}>
+      Strona Główna
+    </a>
+    <a
+      href="/news/1"
+      class={currentPath.includes("news") ? "active-section" : ""}
+    >
+      Aktualności
     </a>
 
-    <div class="section-buttons">
-        <a href="/" class={currentPath === "" ? "active-section" : ""}
-            >Strona Główna</a
-        >
-        <a
-            href="/news/1"
-            class={currentPath.includes("news") ? "active-section" : ""}
-            >Aktualności</a
-        >
-
-        {
-            headerPages.map(({ frontmatter }) => {
-                const pagePath = makeSlug(frontmatter);
-                return (
-                    <a
-                        href={`/${pagePath}`}
-                        class={currentPath === pagePath ? "active-section" : ""}
-                    >
-                        {frontmatter.title}
-                    </a>
-                );
-            })
-        }
-    </div>
+    {
+      headerPages.map(({ frontmatter }) => {
+        const pagePath = makeSlug(frontmatter);
+        return (
+          <a
+            href={`/${pagePath}`}
+            class={currentPath === pagePath ? "active-section" : ""}
+          >
+            {frontmatter.title}
+          </a>
+        );
+      })
+    }
+  </div>
 </header>
 
 <style>
-    header {
-        position: fixed;
-        top: 0;
-        width: 100%;
-        height: 8vh;
-        padding: 0 14vw;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        background-color: white;
-        -webkit-box-shadow: 0px 3px 31px -17px rgba(66, 68, 90, 1);
-        -moz-box-shadow: 0px 3px 31px -17px rgba(66, 68, 90, 1);
-        box-shadow: 0px 3px 31px -17px rgba(66, 68, 90, 1);
-    }
+  header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 8vh;
+    padding: 0 14vw;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: white;
+    -webkit-box-shadow: 0px 3px 31px -17px rgba(66, 68, 90, 1);
+    -moz-box-shadow: 0px 3px 31px -17px rgba(66, 68, 90, 1);
+    box-shadow: 0px 3px 31px -17px rgba(66, 68, 90, 1);
+  }
 
-    .logo {
-        height: 80%;
-    }
-    .logo img {
-        height: 100%;
-    }
+  .logo {
+    height: 80%;
+  }
+  .logo img {
+    height: 100%;
+  }
 
-    .section-buttons a {
-        margin-right: 20px;
-        color: black;
-        transition: color 0.2s;
-    }
+  .section-buttons a {
+    margin-right: 20px;
+    color: black;
+    transition: color 0.2s;
+  }
 
-    .active-section,
-    .section-buttons a:hover {
-        color: #be8a1c !important;
-    }
+  .active-section,
+  .section-buttons a:hover {
+    color: #be8a1c !important;
+  }
 </style>

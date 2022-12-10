@@ -36,6 +36,7 @@ collections: # A list of collections the CMS should be able to edit
     create: true 
     fields: 
       - {label: "Tytuł", name: "title", widget: "string"}
+      - {label: "Pozycja w stopce", name: "footer_position", widget: "number", min: 1}
       - {label: "Treść", name: "body", widget: "markdown"}
 
   - name: "strona_glowna"

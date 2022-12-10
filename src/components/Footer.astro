@@ -1,33 +1,60 @@
 ---
 import type { ArticleMarkdown } from "../scripts/types";
 
-const footerSections = await Astro.glob("../content/footer_sections/*.md") as ArticleMarkdown[]
+const footerSections = (
+  await Astro.glob("../content/footer_sections/*.md")
+).sort(
+  (a, b) => a.frontmatter.footer_position - b.frontmatter.footer_position
+) as ArticleMarkdown[];
 ---
 
 <footer>
-    { footerSections.map(({ Content, frontmatter }) => (
-        <div>
-            <h1>{ frontmatter.title }</h1>
-            <Content />
-        </div>
-    ))}
+  {
+    footerSections.map(({ Content, frontmatter }) => (
+      <section>
+        <h4>{frontmatter.title}</h4>
+        <Content />
+      </section>
+    ))
+  }
 </footer>
 
 <style>
-    footer {
-        width: 100%;
-        display: flex;
-        justify-content: space-evenly;
-        background-color: #141414;
-        padding: 50px 5vw;
-    }
+  footer {
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    background-color: #141414;
+    padding: 50px 5vw;
+  }
 
-    footer div {
-        width: 20vw;
-        color: white;    
-    }
+  section {
+    width: 20vw;
+    color: #c7c7c7;
+  }
 
-    footer div li {
-        margin: 5px 0;
-    }
+  h4 {
+    font-size: 18px;
+  }
+
+  section :global(ul) {
+    padding-left: 17px;
+  }
+
+  section :global(li) {
+    padding-bottom: 12px;
+    text-indent: -17px;
+    list-style: none;
+  }
+
+  section :global(li::before) {
+    content: "";
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 4px 0 4px 6px;
+    border-color: #ffb422;
+    display: inline-block;
+    margin-right: 10px;
+  }
 </style>
