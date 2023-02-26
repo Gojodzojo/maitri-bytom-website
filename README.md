@@ -1,7 +1,6 @@
 <div align="center">
 <img src="https://raw.githubusercontent.com/Gojodzojo/maitri-bytom-website/main/public/Logo-Maitri.png" alt="icon" height="140px" />
 </div>
-<br>
 
 # Maitri bytom website
 

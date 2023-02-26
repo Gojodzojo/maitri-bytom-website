@@ -1,9 +1,9 @@
 ---
 title: Instrukcja obsługi strony Maitri Bytom
 ---
-## Tworzenie konta w serwisie Github
+### Tworzenie konta w serwisie Github
 
-By móc edytować treści zamieszczone na stronie [www.bytom.maitri.pl](http://www.bytom.maitri.pl), konieczne jest utworzenie konta w serwisie Github.\
+By móc edytować treści zamieszczone na stronie <http://www.bytom.maitri.pl>, konieczne jest utworzenie konta w serwisie Github.\
 By to zrobić, należy przejść do strony <https://github.com/join>. W pierwszym polu należy wpisać nazwę użytkownika, w drugim swój adres e-mail, a w trzecim hasło.\
 Poniżej znajduje się pole wyboru do oznaczania. Nie należy go zaznaczać by nie otrzymywać zbędnego spamu. Następnie trzeba rozwiązać zagadkę poniżej. Po jej rozwiązaniu trzeba kliknąć zielony przycisk, aby utworzyć konto.
 
@@ -38,11 +38,11 @@ Następnie pojawi się okno w którym należy kliknąć przycisk Wyodrębnij.
 
 Na pulpicie zostanie utworzony folder maitri_bytom_strona i zostanie on automatycznie otwarty.
 
-![](https://lh3.googleusercontent.com/ZrVWx7q1SxD7XxgNZudqoHmFFuuGkMSRnH29UvIiRejxJ7No7rWCZ2rV9o3J9_NxkJoOKlP-R0EB2nrmePVErGpmmnigWNQNMTiVgoLJy-9ryod8oRPOyhNZafIdEvEE8dmVHLML2ikykFF_mLOEqfQ)
+![](/img/image18.png)
 
 Ponieważ plik maitri_bytom_strona.zip nie będzie już potrzebny, można go usunąć klikając na niego prawym przyciskiem myszy i wybierając opcję usuń
 
-![](https://lh6.googleusercontent.com/LNZc02bI0jZyKxi8y0SIYRrjvkHYbAkuq_TR6DV9O2VLZlKbnGBSCCMWy-RC1LpRyOluRExORqx-r_F-1O_jdrkW1AbBCpQYhhVc2ioRM_sskGtLisDkr_9gqoWqefDG1dCKHZ-vN8eBZE7bp_jYdIQ)
+![](/img/image6.png)
 
 3. Uruchomienie edytora i edytowanie strony
 
