@@ -48,3 +48,13 @@ collections: # A list of collections the CMS should be able to edit
       fields: 
         - {label: "Tytuł", name: "title", widget: "string"}
         - {label: "Treść", name: "body", widget: "markdown"}
+  
+  - name: "instrukcja"
+    label: "Instrukcja"
+    files: 
+    - file: "src/content/instruction.md"  
+      name: "instrukcja"
+      label: "Instrukcja"
+      fields: 
+        - {label: "Tytuł", name: "title", widget: "string"}
+        - {label: "Treść", name: "body", widget: "markdown"}
