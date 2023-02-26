@@ -37,7 +37,7 @@ N﻿astępnie należy zaakceptować zaproszenie przez kliknięcie przycisku **Jo
 
 ### Instalacja edytora strony
 
-Po rejestracji konta należy pobrać plik **maitri_bytom_strona.zip** ze strony <https://www.bytom.maitri.pl/maitri_bytom_strona.zip>, przenieść go na pulpit, kliknąć go prawym przyciskiem myszy i wybrać opcję **wyodrębnij wszystkie**.
+Po rejestracji konta należy pobrać plik **maitri_bytom_strona.zip** ze strony <http://www.bytom.maitri.pl/maitri_bytom_strona.zip>, przenieść go na pulpit, kliknąć go prawym przyciskiem myszy i wybrać opcję **wyodrębnij wszystkie**.
 
 ![](/img/image3.png)
 
