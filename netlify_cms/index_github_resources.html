@@ -1,18 +1,26 @@
 <head>
-    <link href="https://raw.githubusercontent.com/Gojodzojo/maitri-bytom-website/main/netlify_cms/config.yml" type="text/yaml" rel="cms-config-url">
-    <link href="https://unpkg.com/netlify-cms/dist/cms.css" rel="stylesheet"/>
+    <link href="https://raw.githubusercontent.com/Gojodzojo/maitri-bytom-website/main/netlify_cms/config.yml"
+        type="text/yaml" rel="cms-config-url">
+    <link href="https://unpkg.com/netlify-cms/dist/cms.css" rel="stylesheet" />
 </head>
+
 <body>
     <script async>
         const netlifyCmsScript = document.createElement("script")
         document.body.appendChild(netlifyCmsScript)
 
-        netlifyCmsScript.onload = function() {
-            const preview_css_url = "https://raw.githubusercontent.com/Gojodzojo/maitri-bytom-website/main/src/styles/global.css"
-            fetch(preview_css_url)
-                .then(css => css.text())
-                .then(btoa)
-                .then(css => CMS.registerPreviewStyle('data:text/css;base64,' + css))
+        netlifyCmsScript.onload = function () {
+            const cssFiles = [
+                "https://raw.githubusercontent.com/Gojodzojo/maitri-bytom-website/main/src/styles/global.css",
+                "https://raw.githubusercontent.com/Gojodzojo/maitri-bytom-website/main/src/styles/CustomImg.css.css",
+            ]
+
+            cssFiles.forEach(css_url => {
+                fetch(css_url)
+                    .then(css => css.text())
+                    .then(btoa)
+                    .then(css => CMS.registerPreviewStyle('data:text/css;base64,' + css))
+            })
         }
 
         netlifyCmsScript.src = "https://unpkg.com/netlify-cms/dist/netlify-cms.js"

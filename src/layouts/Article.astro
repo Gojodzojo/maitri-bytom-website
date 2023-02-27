@@ -3,14 +3,34 @@ import Base from "./Base.astro";
 import ImageSlider from "../components/ImageSlider.svelte";
 import type { ArticleMarkdown } from "../scripts/types";
 import { makeDescription } from "../scripts/makeDescription";
+import CustomImg from "../components/CustomImg/CustomImg.astro";
 
-export interface Props {
+interface Props {
   markdown: ArticleMarkdown;
 }
 
 const { markdown } = Astro.props;
-const { Content, frontmatter, compiledContent } = markdown;
+const { frontmatter, compiledContent } = markdown;
 const { title, date, author, image_gallery } = frontmatter;
+
+const splittedContent = compiledContent().split(/(<img.*?>)/g);
+
+function getTagProperties(s: string) {
+  const tagPropertyNameRegex = /(?<=\s)(.*?)(?==")/g;
+  const tagPropertyValueRegex = /(?<==")(.*?)(?=")/g;
+
+  let tagPropertyName: RegExpExecArray;
+  let tagPropertyValue: RegExpExecArray;
+  let properties: Record<string, string> = {};
+  while (
+    (tagPropertyName = tagPropertyNameRegex.exec(s)!) &&
+    (tagPropertyValue = tagPropertyValueRegex.exec(s)!)
+  ) {
+    properties[tagPropertyName[0]] = tagPropertyValue[0];
+  }
+
+  return properties;
+}
 ---
 
 <Base title={title} description={makeDescription(compiledContent())}>
@@ -27,9 +47,18 @@ const { title, date, author, image_gallery } = frontmatter;
       )
     }
 
-    <Content />
+    {
+      splittedContent.map((s) => {
+        if (!s.includes("<img")) return <Fragment set:html={s} />;
+        return <CustomImg {...getTagProperties(s)} />;
+      })
+    }
 
-    {image_gallery && <ImageSlider client:load images={image_gallery} />}
+    {
+      image_gallery && image_gallery.length > 0 && (
+        <ImageSlider client:load images={image_gallery} />
+      )
+    }
   </article>
 </Base>
 <style>

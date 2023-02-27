@@ -7,11 +7,11 @@ By móc edytować treści zamieszczone na stronie <http://www.bytom.maitri.pl>, 
 By to zrobić, należy przejść do strony <https://github.com/join>. W pierwszym polu należy wpisać **nazwę użytkownika**, w drugim swój **adres e-mail**, a w trzecim **hasło**.\
 Poniżej znajduje się pole wyboru do oznaczania. Nie należy go zaznaczać by nie otrzymywać zbędnego spamu. Następnie trzeba rozwiązać zagadkę poniżej. Po jej rozwiązaniu trzeba kliknąć **zielony przycisk**, aby utworzyć konto.
 
-![](/img/image12.png)
+![aaa](/img/image12.png "bbb")
 
 Otworzy się strona na której trzeba będzie wpisać kod aktywacyjny wysłany w wiadomości na nasz adres e-mail. **Należy jej dokładnie poszukać**, bo jest możliwe, że wyląduje w sekcji ze spamem.
 
-![](/img/image5.png)
+![ccc](/img/image5.png "ddd")
 
 By aktywować konto należy albo przepisać numer wysłany w mailu do powyższej strony, albo kliknąć niebieski link wysłany w mailu.
 
@@ -25,7 +25,7 @@ Po zalogowaniu powinna pojawić się strona podobna do poniższej:
 
 Jeśli tak jest, to rejestracja przebiegła pomyślnie. Proszę, byście Państwo przesłali na adres mateuszgoik1@wp.pl adresy e-mail przy pomocy których zostały utworzone te konta. Dzięki temu będę mógł dodać im uprawnienia do modyfikowania strony. **Bez tego edytowanie strony nie będzie możliwe.**
 
-G﻿dy wyślę zaproszenie, należy kliknąć na ikonę swojego profilu na stronie Github i wybrać opcję **Your organizations**
+Gdy wyślę zaproszenie, należy kliknąć na ikonę swojego profilu na stronie Github i wybrać opcję **Your organizations**
 
 ![](/img/screenshot-from-2023-02-26-17-34-07.png)
 

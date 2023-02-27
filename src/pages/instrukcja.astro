@@ -2,9 +2,9 @@
 import Article from "../layouts/Article.astro";
 import type { ArticleMarkdown } from "../scripts/types";
 
-const indexMarkdown = (
-    await Astro.glob("../content/instruction.md")
+const markdown = (
+    await Astro.glob("../markdown/instruction.md")
 )[0] as ArticleMarkdown;
 ---
 
-<Article markdown={indexMarkdown} />
+<Article markdown={markdown} />

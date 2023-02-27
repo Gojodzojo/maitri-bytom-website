@@ -2,7 +2,7 @@
 import type { ArticleMarkdown } from "../scripts/types";
 
 const footerSections = (
-  await Astro.glob("../content/footer_sections/*.md")
+  await Astro.glob("../markdown/footer_sections/*.md")
 ).sort(
   (a, b) => a.frontmatter.footer_position - b.frontmatter.footer_position
 ) as ArticleMarkdown[];
