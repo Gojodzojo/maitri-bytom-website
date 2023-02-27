@@ -8,7 +8,7 @@ img {
 }
 
 .background>img {
-    margin: 0;
+    margin-top: 0;
     max-height: 90vh;
     cursor: unset;
 }
