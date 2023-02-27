@@ -1,6 +1,6 @@
 ---
-import Article from "../layouts/Article.astro";
-import type { ArticleMarkdown } from "../scripts/types";
+import Article from "$layouts/Article.astro";
+import type { ArticleMarkdown } from "$scripts/types";
 
 const markdown = (
     await Astro.glob("../markdown/index.md")

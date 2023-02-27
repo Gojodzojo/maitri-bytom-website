@@ -1,6 +1,6 @@
 ---
-import { makeSlug } from "../scripts/makeSlug";
-import type { ArticleMarkdown } from "../scripts/types";
+import { makeSlug } from "$scripts/makeSlug";
+import type { ArticleMarkdown } from "$scripts/types";
 
 const headerPages = (await Astro.glob("../markdown/header_pages/*.md")).sort(
   (a, b) => a.frontmatter.header_position - b.frontmatter.header_position

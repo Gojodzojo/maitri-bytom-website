@@ -1,9 +1,9 @@
 ---
 import Base from "./Base.astro";
-import ImageSlider from "../components/ImageSlider.svelte";
-import type { ArticleMarkdown } from "../scripts/types";
-import { makeDescription } from "../scripts/makeDescription";
-import CustomImg from "../components/CustomImg/CustomImg.astro";
+import ImageSlider from "$components/ImageSlider.svelte";
+import type { ArticleMarkdown } from "$scripts/types";
+import { makeDescription } from "$scripts/makeDescription";
+import CustomImg from "$components/CustomImg/CustomImg.astro";
 
 interface Props {
   markdown: ArticleMarkdown;
