@@ -2,7 +2,7 @@
 title: Artykuł 1
 date: 2022-11-16T18:37:07+01:00
 draft: false
-image: /img/820.jpg
+image: /img/image15.png
 author: Mateusz Goik
 tags: []
 ---
