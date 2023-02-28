@@ -13,8 +13,8 @@
             text: "Strona Główna",
         },
         {
-            href: "/news/1",
-            isOpened: currentPath.includes("news"),
+            href: "/aktualnosci/1",
+            isOpened: currentPath.includes("aktualnosci"),
             text: "Aktualności",
         },
     ];
@@ -22,7 +22,7 @@
     const headerPagesBtnData = pages.map(({ frontmatter }) => {
         const pageSlug = makeSlug(frontmatter);
         const href = `/${pageSlug}`;
-        const isOpened = currentPath === pageSlug;
+        const isOpened = currentPath.includes(pageSlug);
         const text = frontmatter.title;
 
         return {
