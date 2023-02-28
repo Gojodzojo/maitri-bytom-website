@@ -42,7 +42,7 @@
     </svg>
 </button>
 
-<div style="left: {isOpened ? '0' : '100'}vw;">
+<div style="left: {isOpened ? '0' : '100'}%;">
     {#each [...constatntPagesBtnData, ...headerPagesBtnData] as { href, isOpened, text }}
         <a class:active-section={isOpened} {href}>{text}</a>
     {/each}
@@ -82,7 +82,7 @@
             position: fixed;
             top: var(--header-height);
             height: calc(100vh - var(--header-height));
-            width: 100vw;
+            width: 100%;
             flex-direction: column;
             justify-content: center;
             align-items: center;

@@ -10,7 +10,7 @@ img {
 .background>img {
     margin-top: 0;
     max-height: 90vh;
-    max-width: 90vw;
+    max-width: 90%;
     cursor: unset;
 }
 
@@ -18,7 +18,7 @@ img {
     position: fixed;
     top: 0;
     left: 0;
-    width: 100vw;
+    width: 100%;
     height: 100vh;
     display: flex;
     flex-direction: column;

@@ -38,6 +38,6 @@ body {
     font-size: 14px;
     line-height: 1.7em;
     margin: 0;
-    width: 100vw;
+    width: 100%;
     min-height: 100vh;
 }
