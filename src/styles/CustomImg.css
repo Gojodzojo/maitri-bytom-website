@@ -10,6 +10,7 @@ img {
 .background>img {
     margin-top: 0;
     max-height: 90vh;
+    max-width: 90vw;
     cursor: unset;
 }
 

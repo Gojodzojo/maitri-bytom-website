@@ -28,9 +28,9 @@ const { title, description } = Astro.props;
 
     <style>
       main {
-        margin-top: 8vh;
-        width: 100%;
-        min-height: 92vh;
+        margin-top: var(--header-height);
+        min-height: calc(100vh - var(--header-height));
+        width: 100vw;
       }
     </style>
   </body>
