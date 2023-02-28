@@ -10,39 +10,55 @@ interface Props {
 const { markdown } = Astro.props;
 const { compiledContent, frontmatter } = markdown;
 const { title, date, image } = frontmatter;
+
+const articleHref = `/${makeSlug(frontmatter)}`;
 ---
 
-<article class="article-list-item">
-  <img src={image} alt={`${title} image`} />
+<article>
+  <a href={articleHref}>
+    <img src={image} alt={`${title} image`} />
+  </a>
   <div>
-    <a href={`/${makeSlug(frontmatter)}`}>
+    <a href={articleHref}>
       <h2>{title}</h2>
     </a>
 
-    <h4>
-      {new Date(date!).toLocaleDateString("pl")}
-    </h4>
+    <h4>{new Date(date!).toLocaleDateString("pl")}</h4>
 
-    <p class="article-description">
-      {makeDescription(compiledContent())}
-    </p>
+    <p>{makeDescription(compiledContent())}</p>
   </div>
 </article>
 
 <style>
-  .article-list-item {
+  @media (min-width: 500px) {
+    article {
+      flex-direction: row;
+      height: 200px;
+      overflow: hidden;
+    }
+
+    img {
+      height: 200px;
+      margin-right: 40px;
+    }
+  }
+
+  @media (max-width: 500px) {
+    article {
+      flex-direction: column;
+    }
+
+    img {
+      width: 100%;
+    }
+  }
+
+  article {
     display: flex;
     margin-top: 30px;
   }
 
-  .article-list-item img {
+  img {
     aspect-ratio: 1;
-    height: 200px;
-    margin: 0 40px;
-    margin-left: 0;
-  }
-
-  .article-list-item h2 {
-    margin-block-start: 0;
   }
 </style>
