@@ -45,3 +45,24 @@ body {
     width: 100%;
     min-height: 100vh;
 }
+
+ul {
+    padding-left: 17px;
+}
+
+li {
+    padding-bottom: 12px;
+    text-indent: -17px;
+    list-style: none;
+}
+
+li::before {
+    content: "";
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 4px 0 4px 6px;
+    border-color: #ffb422;
+    display: inline-block;
+    margin-right: 10px;
+}

@@ -1,3 +1,5 @@
+locale: 'pl'
+
 backend:
   name: github
   repo: Gojodzojo/maitri-bytom-website
@@ -15,7 +17,7 @@ collections: # A list of collections the CMS should be able to edit
       - {label: "Tytuł", name: "title", widget: "string"}
       - {label: "Pozycja na pasku", name: "header_position", widget: "number", min: 1}
       - {label: "Treść", name: "body", widget: "markdown"}
-      - {label: "Galeria zdjęć", name: "image_gallery", widget: "list", required: false, summary: '{{fields.image}}', collapsed: true, label_singular: "image", field: {label: "Zdjęcie", name: image, widget: image}}
+      - {label: "Galeria zdjęć", name: "image_gallery", widget: "list", required: false, summary: '{{fields.image}}', collapsed: true, label_singular: "zdjęcie", field: {label: "Zdjęcie", name: image, widget: image}}
 
   - name: "aktualnosci"
     label: "Aktualności"
@@ -24,11 +26,11 @@ collections: # A list of collections the CMS should be able to edit
     fields: 
       - {label: "Zdjęcie artykułu", name: "image", widget: "image", allow_multiple: false}
       - {label: "Tytuł", name: "title", widget: "string"}
-      - {label: "Data publikacji", name: "date", widget: "datetime"}
+      - {label: "Data publikacji", name: "date", widget: "datetime", date_format: "DD-MM-YYYY", time_format: false}
       - {label: "Autor", name: "author", widget: "string"}
       - {label: "Tagi oddzielone przecinkiem", name: "tags", widget: "list"}
       - {label: "Treść", name: "body", widget: "markdown"}
-      - {label: "Galeria zdjęć", name: "image_gallery", widget: "list", required: false, summary: '{{fields.image}}', collapsed: true, label_singular: "image", field: {label: "Zdjęcie", name: image, widget: image}}
+      - {label: "Galeria zdjęć", name: "image_gallery", widget: "list", required: false, summary: '{{fields.image}}', collapsed: true, label_singular: "zdjęcie", field: {label: "Zdjęcie", name: image, widget: image}}
 
   - name: "sekcje_stopki"
     label: "Sekcje stopki"
