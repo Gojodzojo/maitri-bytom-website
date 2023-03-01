@@ -5,6 +5,7 @@ export interface ArticleFrontmatter {
     date?: string
     author?: string
     image?: string
+    tags?: string[]
     image_gallery?: string[]
 }
 

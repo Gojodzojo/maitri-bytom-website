@@ -1,0 +1,48 @@
+---
+import type { GetStaticPathsOptions, Page } from "astro";
+import List from "$layouts/List.astro";
+import type { ArticleMarkdown } from "$scripts/types";
+
+interface Props {
+    tag: string;
+    page: Page<ArticleMarkdown>;
+}
+
+export async function getStaticPaths({ paginate }: GetStaticPathsOptions) {
+    const posts: ArticleMarkdown[] = await Astro.glob(
+        "../../../markdown/news/*.md"
+    );
+
+    const postsWithTags = posts.filter(
+        (post) => post.frontmatter.tags != undefined
+    );
+
+    const uniqueTags = [
+        ...new Set(postsWithTags.map((post) => post.frontmatter.tags!).flat()),
+    ];
+
+    return uniqueTags.flatMap((tag) => {
+        const filteredTaggedPosts = postsWithTags.filter((post) =>
+            post.frontmatter.tags!.includes(tag)
+        );
+
+        return paginate(filteredTaggedPosts, {
+            pageSize: 10,
+            params: {
+                tagName: tag,
+            },
+            props: {
+                tag,
+            },
+        });
+    });
+}
+
+const { page, tag } = Astro.props;
+---
+
+<List
+    page={page}
+    title={`Tag ${tag}`}
+    description="Ruch MAITRI - Adopcja serca - pomoc dla sierot w Afryce. Wspólnota w Bytomiu."
+/>

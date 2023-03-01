@@ -75,7 +75,7 @@
         }
 
         svg:hover {
-            fill: #be8a1c !important;
+            fill: var(--highlight-color) !important;
         }
 
         div {
@@ -103,6 +103,6 @@
 
     .active-section,
     a:hover {
-        color: #be8a1c !important;
+        color: var(--highlight-color) !important;
     }
 </style>

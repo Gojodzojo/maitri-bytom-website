@@ -15,13 +15,17 @@
     }
 }
 
+:root {
+    --highlight-color: #be8a1c;
+}
+
 * {
     box-sizing: border-box;
 }
 
 a {
     text-decoration: none;
-    color: #be8a1c;
+    color: var(--highlight-color);
 }
 
 h1,
