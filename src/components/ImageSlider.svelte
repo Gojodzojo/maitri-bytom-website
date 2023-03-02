@@ -1,4 +1,6 @@
 <script lang="ts">
+    import TransitioningImg from "./TransitioningImg.svelte";
+
     export let images: string[];
 
     let currentImageIndex = 0;
@@ -10,37 +12,30 @@
     }
 </script>
 
-<div class="image-slider">
-    <div
-        class="image"
-        style="background-image: url({images[currentImageIndex]});"
-    >
-        <button on:click={() => currentImageIndex--}> &laquo; </button>
-        <button on:click={() => currentImageIndex++}> &raquo; </button>
-    </div>
+<div>
+    <TransitioningImg src={images[currentImageIndex]} />
+    <button style="left: 0;" on:click={() => currentImageIndex--}>
+        &laquo;
+    </button>
+    <button style="right: 0;" on:click={() => currentImageIndex++}>
+        &raquo;
+    </button>
 </div>
 
 <style>
-    .image-slider {
-        width: 100%;
-        display: flex;
-        justify-content: center;
-        margin-top: 50px;
-    }
-
-    .image {
+    div {
         width: 100vmin;
         max-width: 100%;
         aspect-ratio: 16 / 9;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        background-repeat: no-repeat;
-        background-size: contain;
-        background-position: center;
+        margin: auto;
+        position: relative;
+        margin-top: 50px;
     }
 
     button {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
         background-color: white;
         border: none;
         padding: 10px;
