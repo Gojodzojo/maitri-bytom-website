@@ -1,11 +1,8 @@
 ---
 import Article from "$layouts/Article.astro";
 import { makeSlug } from "$scripts/makeSlug";
-import {
-    ArticleMarkdown,
-    getHeaderPages,
-    getNews,
-} from "$scripts/resources.astro";
+import { getHeaderPages, getNews } from "$scripts/resources.astro";
+import type { ArticleMarkdown } from "$scripts/types";
 
 interface Props {
     markdown: ArticleMarkdown;

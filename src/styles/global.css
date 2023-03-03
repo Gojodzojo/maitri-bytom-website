@@ -16,6 +16,7 @@
 }
 
 :root {
+    --header-height: 8vh;
     --highlight-color: #be8a1c;
 }
 
@@ -46,11 +47,14 @@ body {
     min-height: 100vh;
 }
 
-main,
-.frame-content {
+main {
     margin-top: var(--header-height);
     min-height: calc(100vh - var(--header-height));
     width: 100%;
+}
+
+.frame-content {
+    padding: var(--vertical-page-margin) var(--horizontal-page-margin);
 }
 
 ul {

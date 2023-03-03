@@ -1,10 +1,11 @@
 ---
 import Article from "$layouts/Article.astro";
-import type { ArticleMarkdown } from "$scripts/resources.astro";
+import type { IndexFrontmatter } from "$scripts/types";
+import type { MarkdownInstance } from "astro";
 
 const markdown = (
     await Astro.glob("../markdown/index.md")
-)[0] as ArticleMarkdown;
+)[0] as MarkdownInstance<IndexFrontmatter>;
 ---
 
 <Article markdown={markdown} />
