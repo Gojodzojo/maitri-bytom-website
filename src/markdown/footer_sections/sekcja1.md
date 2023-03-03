@@ -1,6 +1,6 @@
 ---
 title: Dane adresowe
-footer_position: 1
+position: 1
 ---
 
 **Biuro koordynacyjne programu Adopcja Serca**

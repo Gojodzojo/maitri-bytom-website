@@ -15,7 +15,8 @@ collections: # A list of collections the CMS should be able to edit
     create: true # Allow users to create new documents in this collection
     fields: # The fields each document in this collection have
       - {label: "Tytuł", name: "title", widget: "string"}
-      - {label: "Pozycja na pasku", name: "header_position", widget: "number", min: 1}
+      - {label: "Pozycja na pasku", name: "position", widget: "number", min: 1}
+      - {label: "Czy szkic? (nie będzie widoczny na stronie)", name: "draft", widget: "boolean", default: true }
       - {label: "Treść", name: "body", widget: "markdown"}
       - {label: "Galeria zdjęć", name: "image_gallery", widget: "list", required: false, summary: '{{fields.image}}', collapsed: true, label_singular: "zdjęcie", field: {label: "Zdjęcie", name: image, widget: image}}
 
@@ -28,6 +29,7 @@ collections: # A list of collections the CMS should be able to edit
       - {label: "Tytuł", name: "title", widget: "string"}
       - {label: "Data publikacji", name: "date", widget: "datetime", date_format: "DD-MM-YYYY", time_format: false}
       - {label: "Autor", name: "author", widget: "string"}
+      - {label: "Czy szkic? (nie będzie widoczny na stronie)", name: "draft", widget: "boolean", default: true }
       - {label: "Tagi oddzielone przecinkiem", name: "tags", widget: "list"}
       - {label: "Treść", name: "body", widget: "markdown"}
       - {label: "Galeria zdjęć", name: "image_gallery", widget: "list", required: false, summary: '{{fields.image}}', collapsed: true, label_singular: "zdjęcie", field: {label: "Zdjęcie", name: image, widget: image}}
@@ -38,7 +40,8 @@ collections: # A list of collections the CMS should be able to edit
     create: true 
     fields: 
       - {label: "Tytuł", name: "title", widget: "string"}
-      - {label: "Pozycja w stopce", name: "footer_position", widget: "number", min: 1}
+      - {label: "Pozycja w stopce", name: "position", widget: "number", min: 1}
+      - {label: "Czy szkic? (nie będzie widoczny na stronie)", name: "draft", widget: "boolean", default: true }
       - {label: "Treść", name: "body", widget: "markdown"}
 
   - name: "strona_glowna"
@@ -48,6 +51,7 @@ collections: # A list of collections the CMS should be able to edit
       name: "strona_glowna"
       label: "Strona główna"
       fields: 
+        - {label: "Galeria zdjęć", name: "image_gallery", widget: "list", required: false, summary: '{{fields.image}}', collapsed: true, label_singular: "zdjęcie", field: {label: "Zdjęcie", name: image, widget: image}}
         - {label: "Tytuł", name: "title", widget: "string"}
         - {label: "Treść", name: "body", widget: "markdown"}
   

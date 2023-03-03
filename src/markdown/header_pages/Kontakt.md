@@ -1,6 +1,6 @@
 ---
 title: Kontakt
-header_position: 5
+position: 5
 image_gallery: []
 ---
 Prawnym organem wspólnoty Ruchu Maitri w Bytomiu jest\

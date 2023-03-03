@@ -1,6 +1,6 @@
 ---
 title: Dane kontaktowe
-footer_position: 2
+position: 2
 ---
 
 Tel: +48 58 520 30 50\

@@ -25,13 +25,5 @@ const { title, description } = Astro.props;
     <Header />
     <main><slot /></main>
     <Footer />
-
-    <style>
-      main {
-        margin-top: var(--header-height);
-        min-height: calc(100vh - var(--header-height));
-        width: 100%;
-      }
-    </style>
   </body>
 </html>

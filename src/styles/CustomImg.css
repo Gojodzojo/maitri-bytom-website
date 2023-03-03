@@ -7,6 +7,13 @@ img {
     cursor: pointer;
 }
 
+p {
+    text-align: center;
+    color: #888;
+    height: 1em;
+    margin: 1em 0;
+}
+
 .background>img {
     margin-top: 0;
     max-height: 90vh;

@@ -1,6 +1,6 @@
 ---
 title: Adopcja Serca
-header_position: 2
+position: 2
 ---
 ### NA CZYM POLEGA ADOPCJA SERCA
 

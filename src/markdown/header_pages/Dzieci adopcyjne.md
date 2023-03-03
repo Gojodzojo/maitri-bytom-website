@@ -1,6 +1,6 @@
 ---
 title: Dzieci Adopcyjne
-header_position: 3
+position: 3
 image_gallery:
   - /img/820.jpg
   - /img/818.jpg

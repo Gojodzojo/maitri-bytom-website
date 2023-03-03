@@ -1,0 +1,53 @@
+---
+import type { MarkdownInstance } from "astro";
+
+export interface ArticleFrontmatter {
+    draft?: boolean;
+    title: string;
+    date?: string;
+    author?: string;
+    image?: string;
+    tags?: string[];
+    image_gallery?: string[];
+    position?: number;
+}
+
+export type ArticleMarkdown = MarkdownInstance<ArticleFrontmatter>;
+
+export function filterDrafts(a: ArticleMarkdown[]) {
+    return a.filter(
+        ({ frontmatter }) =>
+            frontmatter.draft == undefined || !frontmatter.draft
+    );
+}
+
+export async function getNews() {
+    const news: ArticleMarkdown[] = await Astro.glob("../markdown/news/*.md");
+    const newsWithoutDrafts = filterDrafts(news);
+    return newsWithoutDrafts.sort(
+        (a, b) =>
+            new Date(b.frontmatter.date!).getTime() -
+            new Date(a.frontmatter.date!).getTime()
+    );
+}
+
+export async function getHeaderPages() {
+    const headerPages: ArticleMarkdown[] = await Astro.glob(
+        "../markdown/header_pages/*.md"
+    );
+    const headerPagesWithoutDrafts = filterDrafts(headerPages);
+    return headerPagesWithoutDrafts.sort(
+        (a, b) => a.frontmatter.position! - b.frontmatter.position!
+    );
+}
+
+export async function getFooterSections() {
+    const footerSections: ArticleMarkdown[] = await Astro.glob(
+        "../markdown/header_pages/*.md"
+    );
+    const footerSectionsWithoutDrafts = filterDrafts(footerSections);
+    return footerSectionsWithoutDrafts.sort(
+        (a, b) => a.frontmatter.position! - b.frontmatter.position!
+    );
+}
+---

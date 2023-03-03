@@ -3,7 +3,7 @@ import Base from "./Base.astro";
 import ImageSlider from "$components/ImageSlider.svelte";
 import type { ArticleMarkdown } from "$scripts/types";
 import { makeDescription } from "$scripts/makeDescription";
-import CustomImg from "$components/CustomImg/CustomImg.astro";
+import ZoomableImg from "$components/ZoomableImg.svelte";
 
 interface Props {
   markdown: ArticleMarkdown;
@@ -50,7 +50,14 @@ function getTagProperties(s: string) {
     {
       splittedContent.map((s) => {
         if (!s.includes("<img")) return <Fragment set:html={s} />;
-        return <CustomImg {...getTagProperties(s)} />;
+
+        // CustomImg must be wrapped in div because
+        // otherwise it is duplicated for some reason
+        return (
+          <div>
+            <ZoomableImg {...getTagProperties(s)} client:load />
+          </div>
+        );
       })
     }
 

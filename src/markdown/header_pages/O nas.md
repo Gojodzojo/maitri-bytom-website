@@ -1,6 +1,6 @@
 ---
 title: O Nas
-header_position: 1
+position: 1
 ---
 Ruch Solidarności z Ubogimi Trzeciego Świata **MAITRI** powstał w 1975 r. O historii powstania czytaj na [maitri.pl](http://maitri.pl/index.php/ruch-maitri-mainmenu-36/czym-jest-ruch-maitri-mainmenu-48/powstanie-ruchu-mainmenu-49)\
 W Bytomiu rozpoczął działalność w 1976 r. w parafii Najświętszego Serca Pana Jezusa przy ulicy Pułaskiego. Od 2007 roku przy parafii św. Jacka. Asystentem kościelnym został ks. Łukasz Krawiec.\

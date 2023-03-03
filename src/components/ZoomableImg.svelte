@@ -18,7 +18,12 @@
     </div>
 {/if}
 
-<!-- svelte-ignore a11y-click-events-have-key-events -->
-<img on:click={() => (is_opened = true)} {src} {title} {alt} />
+<div>
+    <!-- svelte-ignore a11y-click-events-have-key-events -->
+    <img on:click={() => (is_opened = true)} {src} {title} {alt} />
+    {#if title}
+        <p>{title}</p>
+    {/if}
+</div>
 
-<style src="../../styles/CustomImg.css"></style>
+<style src="../styles/CustomImg.css"></style>

@@ -1,7 +1,7 @@
 ---
 import type { GetStaticPathsOptions, Page } from "astro";
 import List from "$layouts/List.astro";
-import type { ArticleMarkdown } from "$scripts/types";
+import { ArticleMarkdown, getNews } from "$scripts/resources.astro";
 
 interface Props {
     tag: string;
@@ -9,9 +9,7 @@ interface Props {
 }
 
 export async function getStaticPaths({ paginate }: GetStaticPathsOptions) {
-    const posts: ArticleMarkdown[] = await Astro.glob(
-        "../../../markdown/news/*.md"
-    );
+    const posts = await getNews();
 
     const postsWithTags = posts.filter(
         (post) => post.frontmatter.tags != undefined

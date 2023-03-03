@@ -1,6 +1,6 @@
 ---
 title: Na skróty
-footer_position: 4
+position: 4
 ---
 
 - Polityka Prywatności Stowarzyszenie Ruch Maitri
