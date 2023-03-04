@@ -6,6 +6,9 @@
       "$components/*": [
         "src/components/*"
       ],
+      "$web_components/*": [
+        "../web_components/src/*"
+      ],
       "$layouts/*": [
         "src/layouts/*"
       ],

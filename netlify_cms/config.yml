@@ -5,13 +5,13 @@ backend:
   repo: Gojodzojo/maitri-bytom-website
   branch: main
 
-media_folder: "public/img" # Folder where user uploaded files should go
+media_folder: "page/public/img" # Folder where user uploaded files should go
 public_folder: "/img"
 
 collections: # A list of collections the CMS should be able to edit
   - name: "strony_gornego_paska" # Used in routes, ie.: /admin/collections/:slug/edit
     label: "Strony górnego paska" # Used in the UI, ie.: "New Post"
-    folder: "src/markdown/header_pages" # The path to the folder where the documents are stored
+    folder: "page/src/markdown/header_pages" # The path to the folder where the documents are stored
     create: true # Allow users to create new documents in this collection
     fields: # The fields each document in this collection have
       - {label: "Tytuł", name: "title", widget: "string"}
@@ -22,7 +22,7 @@ collections: # A list of collections the CMS should be able to edit
 
   - name: "aktualnosci"
     label: "Aktualności"
-    folder: "src/markdown/news" 
+    folder: "page/src/markdown/news" 
     create: true 
     fields: 
       - {label: "Zdjęcie artykułu", name: "image", widget: "image", allow_multiple: false}
@@ -36,7 +36,7 @@ collections: # A list of collections the CMS should be able to edit
 
   - name: "sekcje_stopki"
     label: "Sekcje stopki"
-    folder: "src/markdown/footer_sections"
+    folder: "page/src/markdown/footer_sections"
     create: true 
     fields: 
       - {label: "Tytuł", name: "title", widget: "string"}
@@ -47,7 +47,7 @@ collections: # A list of collections the CMS should be able to edit
   - name: "strona_glowna"
     label: "Strona główna"
     files: 
-    - file: "src/markdown/index.md"  
+    - file: "page/src/markdown/index.md"  
       name: "strona_glowna"
       label: "Strona główna"
       fields: 
@@ -58,7 +58,7 @@ collections: # A list of collections the CMS should be able to edit
   - name: "instrukcja"
     label: "Instrukcja"
     files: 
-    - file: "src/markdown/instruction.md"  
+    - file: "page/src/markdown/instruction.md"  
       name: "instrukcja"
       label: "Instrukcja"
       fields: 

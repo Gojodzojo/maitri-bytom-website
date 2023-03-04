@@ -1,5 +1,5 @@
 <div align="center">
-<img src="https://raw.githubusercontent.com/Gojodzojo/maitri-bytom-website/main/public/Logo-Maitri.png" alt="icon" height="140px" />
+<img src="https://raw.githubusercontent.com/Gojodzojo/maitri-bytom-website/main/page/public/Logo-Maitri.png" alt="icon" height="140px" />
 </div>
 
 # Maitri bytom website

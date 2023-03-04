@@ -1,0 +1,18 @@
+{
+	"name": "maitri-bytom-website",
+	"type": "module",
+	"version": "0.0.1",
+	"scripts": {
+		"dev": "astro dev",
+		"start": "astro dev",
+		"build": "astro build",
+		"preview": "astro preview",
+		"astro": "astro"
+	},
+	"dependencies": {
+		"@astrojs/svelte": "^2.0.2",
+		"astro": "^2.0.15",
+		"svelte": "^3.55.1",
+		"svelte-preprocess": "^5.0.1"
+	}
+}

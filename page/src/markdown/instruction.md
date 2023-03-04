@@ -7,31 +7,31 @@ By móc edytować treści zamieszczone na stronie <http://www.bytom.maitri.pl>, 
 By to zrobić, należy przejść do strony <https://github.com/join>. W pierwszym polu należy wpisać **nazwę użytkownika**, w drugim swój **adres e-mail**, a w trzecim **hasło**.\
 Poniżej znajduje się pole wyboru do oznaczania. Nie należy go zaznaczać by nie otrzymywać zbędnego spamu. Następnie trzeba rozwiązać zagadkę poniżej. Po jej rozwiązaniu trzeba kliknąć **zielony przycisk**, aby utworzyć konto.
 
-![aaa](/img/image12.png "bbb")
+<img src="/img/image12.png" title="bbb" />
 
 Otworzy się strona na której trzeba będzie wpisać kod aktywacyjny wysłany w wiadomości na nasz adres e-mail. **Należy jej dokładnie poszukać**, bo jest możliwe, że wyląduje w sekcji ze spamem.
 
-![ccc](/img/image5.png "ddd")
+<img src="/img/image5.png" title="ddd" />
 
 By aktywować konto należy albo przepisać numer wysłany w mailu do powyższej strony, albo kliknąć niebieski link wysłany w mailu.
 
-![](/img/image7.png)
+<img src="/img/image7.png" title="" />
 
 Jeśli wszystko zostało poprawnie zrobione, możliwe powinno być zalogowanie się na stronie [github.com/login](https://github.com/login).
 
 Po zalogowaniu powinna pojawić się strona podobna do poniższej:
 
-![](/img/image1.png)
+<img src="/img/image1.png" title="" />
 
 Jeśli tak jest, to rejestracja przebiegła pomyślnie. Proszę, byście Państwo przesłali na adres mateuszgoik1@wp.pl adresy e-mail przy pomocy których zostały utworzone te konta. Dzięki temu będę mógł dodać im uprawnienia do modyfikowania strony. **Bez tego edytowanie strony nie będzie możliwe.**
 
 Gdy wyślę zaproszenie, należy kliknąć na ikonę swojego profilu na stronie Github i wybrać opcję **Your organizations**
 
-![](/img/screenshot-from-2023-02-26-17-34-07.png)
+<img src="/img/screenshot-from-2023-02-26-17-34-07.png" title="" />
 
 N﻿astępnie należy zaakceptować zaproszenie przez kliknięcie przycisku **Join**
 
-![](/img/img-20221127-wa0000.jpg)
+<img src="/img/img-20221127-wa0000.jpg" title="" />
 
 
 
@@ -39,19 +39,19 @@ N﻿astępnie należy zaakceptować zaproszenie przez kliknięcie przycisku **Jo
 
 Po rejestracji konta należy pobrać plik **maitri_bytom_strona.zip** ze strony <http://www.bytom.maitri.pl/maitri_bytom_strona.zip>, przenieść go na pulpit, kliknąć go prawym przyciskiem myszy i wybrać opcję **wyodrębnij wszystkie**.
 
-![](/img/image3.png)
+<img src="/img/image3.png" title="" />
 
 Następnie pojawi się okno w którym należy kliknąć przycisk **Wyodrębnij**.
 
-![](/img/image17.png)
+<img src="/img/image17.png" title="" />
 
 Na pulpicie zostanie utworzony folder **maitri_bytom_strona** i zostanie on automatycznie otwarty.
 
-![](/img/image18.png)
+<img src="/img/image18.png" title="" />
 
 Ponieważ plik **maitri_bytom_strona.zip** nie będzie już potrzebny, można go usunąć klikając na niego prawym przyciskiem myszy i wybierając opcję **usuń**
 
-![](/img/image6.png)
+<img src="/img/image6.png" title="" />
 
 ### Uruchomienie edytora i edytowanie strony
 
@@ -59,53 +59,53 @@ Wszystkie czynności z poprzednich punktów wystarczy wykonać tylko raz. Czynno
 
 By uruchomić edytor strony należy uruchomić program **sfz.exe** znajdujący się w folderze **maitri_bytom_strona**. Prawdopodobnie pojawi się wtedy ostrzeżenie, że plik pochodzi z nieznanego źródła.
 
-![](/img/image2.png)
+<img src="/img/image2.png" title="" />
 
 Nie należy się tego obawiać, ponieważ sprawdzałem już wcześniej ten program i nie był zainfekowany wirusem. By go uruchomić należy kliknąć **Więcej informacji** a następnie **Uruchom mimo to**.
 
 Po uruchomieniu programu można go zminimalizować. Nie musi być on na widoku, ale musi być cały czas uruchomiony w czasie edytowania strony.
 
-![](/img/image13.png)
+<img src="/img/image13.png" title="" />
 
 Następnie należy uruchomić przeglądarkę internetową i wpisać w górnym pasku adres [localhost:5000](http://localhost:5000/) i kliknąć enter.
 
 Następnie należy kliknąć **index_proxy.html**
 
-![](/img/image10.png)
+<img src="/img/image10.png" title="" />
 
 Pojawi się wtedy strona, na której trzeba kliknąć **Login with GitHub**. 
 
-![](/img/image16.png)
+<img src="/img/image16.png" title="" />
 
 Możliwe, że pojawi się okienko by zalogować się do Githuba. Należy wpisać swój adres e-mail, a potem hasło. Prawdopodobnie jednak nie będzie potrzeby logowania.
 
 Na pewno pojawi się okno by autoryzować aplikację. Należy wtedy kliknąć **zielony przycisk**
 
-![](/img/image19.png)
+<img src="/img/image19.png" title="" />
 
 Jeśli wszystko poszło dobrze, powinna się pojawić strona taka, jak ta poniżej. Jeśli tak nie jest, prawdopodobnie oznacza to, że jeszcze nie zdążyłem nadać Państwu uprawnień do edytowania strony.
 
-![](/img/image4.png)
+<img src="/img/image4.png" title="" />
 
 Po lewej stronie pod napisem Collections znajdują się różne typy treści które można edytować.
 
-![](/img/image15.png)
+<img src="/img/image15.png" title="" />
 
 Pierwszą i domyślnie otwartą jest kolekcja stron górnego paska strony. Strony te można je dodawać, usuwać i edytować. Po kliknięciu dowolnej z nich pokaże się okno edytora oraz podglądu. Strony w poszczególnych kolekcjach mogą posiadać różne właściwości które można w nich edytować. Większość z nich jest jednak taka sama pomiędzy wszystkimi kolekcjami.
 
-![](/img/image11.png)
+<img src="/img/image11.png" title="" />
 
 Należy zwrócić uwagę na to, że nie wszystko co wyświetla się na podglądzie wygląda identycznie po opublikowaniu strony. Są to na przykład **Pozycja na pasku**, która nie wyświetla się w opublikowanej stronie, lub **Galeria zdjęć**, która w podglądzie wyświetla wszystkie zdjęcia jedno pod drugim, podczas gdy na stronie wyświetla się jako specjalny odtwarzacz zdjęć.
 
-![](/img/image14.png)
+<img src="/img/image14.png" title="" />
 
 Innym sposobem na zamieszczenie zdjęć w artykule jest dodanie ich w edytorze tekstu przez kliknięcie ikony plusa, a następnie przycisku **Image**.
 
-![](/img/image9.png)
+<img src="/img/image9.png" title="" />
 
 Po zakończeniu edytowania danej strony należy kliknąć **Publish**, a następnie **Publish now**. Jeśli chcemy usunąć daną stronę należy kliknąć **Delete entry**.
 
-![](/img/image8.png)
+<img src="/img/image8.png" title="" />
 
 Po opublikowaniu zmian, strona maitri.bytom.pl powinna zostać zaktualizowana w przeciągu ok. 3  minut.
 
