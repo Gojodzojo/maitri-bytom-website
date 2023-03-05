@@ -8,11 +8,10 @@
     <script async>
         fetch("https://raw.githubusercontent.com/Gojodzojo/maitri-bytom-website/main/netlify_cms/setup.js")
             .then(js => js.text())
-            .then(btoa)
             .then(js => {
                 const setupScript = document.createElement("script")
                 document.body.appendChild(setupScript)
-                setupScript.src = 'data:text/js;base64,' + js
+                setupScript.innerHTML = js
             })
 
     </script>

@@ -3,7 +3,7 @@ document.body.appendChild(netlifyCmsScript)
 
 netlifyCmsScript.onload = async function () {
     const cssFiles = [
-        "https://raw.githubusercontent.com/Gojodzojo/maitri-bytom-website/main/src/styles/global.css",
+        "https://raw.githubusercontent.com/Gojodzojo/maitri-bytom-website/main/page/src/styles/global.css",
     ]
 
     cssFiles.forEach(css_url => {
@@ -13,7 +13,7 @@ netlifyCmsScript.onload = async function () {
     })
 
     const webComponents = [
-        "http://www.bytom.maitri.pl/web_components/ZoomableImg.js"
+        "http://localhost:8000/proxy?path=http://www.bytom.maitri.pl/web_components/ZoomableImg.js"
     ]
 
     const webComponentsCodesPromises = webComponents.map(async (url) => {
@@ -27,10 +27,8 @@ netlifyCmsScript.onload = async function () {
     const PostPreview = createClass({
         getInitialState: function () {
             console.log("Setting up preview window")
-            console.log(this.props)
-            console.log(CMS)
-            getAsset = this.props.getAsset
 
+            getAsset = this.props.getAsset
             const previewWindow = this.props.window
             webComponentsCodes.forEach(previewWindow.eval)
 
@@ -38,8 +36,10 @@ netlifyCmsScript.onload = async function () {
         },
 
         render: function () {
+            const titleText = this.props.widgetFor('title').props.value.props.children
+
             return h('div', {},
-                h('h1', {}, this.props.widgetFor('title')),
+                h('h1', {}, typeof titleText === "object" ? titleText[2] : titleText),
                 h('div', {}, this.props.widgetFor('body')),
             );
         }
@@ -58,6 +58,7 @@ netlifyCmsScript.onload = async function () {
     const imageWidget = {
         id: "zoomable-image",
         label: "Zdjęcie",
+        collapsed: true,
         fields: [
             {
                 label: "Zdjęcie",
