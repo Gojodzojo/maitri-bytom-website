@@ -36,10 +36,27 @@ netlifyCmsScript.onload = async function () {
         },
 
         render: function () {
-            const titleText = this.props.widgetFor('title').props.value.props.children
+            const getText = (field) => {
+                const children = this.props.widgetFor(field).props.value.props.children
+                return typeof children === "object" ? children[2] : children
+            }
+
+            let authorAndDate
+            try {
+                const date = this.props.widgetFor("date").props.value
+                authorAndDate = h('h4', {},
+                    getText('author'),
+                    h('br', {}),
+                    new Date(date).toLocaleDateString("pl")
+                )
+            } catch (error) {
+                authorAndDate = ''
+            }
+
 
             return h('div', {},
-                h('h1', {}, typeof titleText === "object" ? titleText[2] : titleText),
+                h('h1', {}, getText('title')),
+                authorAndDate,
                 h('div', {}, this.props.widgetFor('body')),
             );
         }
