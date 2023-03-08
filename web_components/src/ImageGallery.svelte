@@ -1,19 +1,33 @@
+<svelte:options tag="image-gallery" />
+
 <script lang="ts">
     import TransitioningImg from "./TransitioningImg.svelte";
 
-    export let images: string[];
+    export let images: string[] | string;
+    const isNotWebComponent = customElements.get("image-gallery") === undefined;
+
+    $: imagesArray = (
+        typeof images === "object" ? images : JSON.parse(images)
+    ) as string[];
 
     let currentImageIndex = 0;
 
     $: if (currentImageIndex < 0) {
-        currentImageIndex = images.length - 1;
-    } else if (currentImageIndex >= images.length) {
+        currentImageIndex = imagesArray.length - 1;
+    } else if (currentImageIndex >= imagesArray.length) {
         currentImageIndex = 0;
     }
+
+    $: src = imagesArray[currentImageIndex];
 </script>
 
 <div>
-    <TransitioningImg src={images[currentImageIndex]} />
+    {#if isNotWebComponent}
+        <TransitioningImg {src} />
+    {:else}
+        <transitioning-img {src} />
+    {/if}
+
     <button style="left: 0;" on:click={() => currentImageIndex--}>
         &laquo;
     </button>

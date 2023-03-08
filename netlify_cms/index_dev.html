@@ -1,7 +1,16 @@
 <head>
+    <link href="/config.yml" type="text/yaml" rel="cms-config-url">
     <link href="https://unpkg.com/netlify-cms/dist/cms.css" rel="stylesheet" />
 </head>
 
 <body>
+    <script>
+        window.config = {
+            cssFiles: [
+                "https://raw.githubusercontent.com/Gojodzojo/maitri-bytom-website/main/page/src/styles/global.css",
+            ],
+            webComponentsUrl: "http://localhost:8000/web_components/web_components.js",
+        }
+    </script>
     <script src="/setup.js"></script>
 </body>

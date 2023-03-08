@@ -1,3 +1,5 @@
+<svelte:options tag="transitioning-img" />
+
 <script lang="ts">
     export let src: string;
 

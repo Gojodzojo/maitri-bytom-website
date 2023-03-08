@@ -1,6 +1,6 @@
 ---
 import Base from "./Base.astro";
-import ImageSlider from "$components/ImageSlider.svelte";
+import ImageGallery from "$web_components/ImageGallery.svelte";
 import type { ArticleMarkdown } from "$scripts/types";
 import { makeDescription } from "$scripts/makeDescription";
 import ZoomableImg from "$web_components/ZoomableImg.svelte";
@@ -63,7 +63,7 @@ function getTagProperties(s: string) {
 
     {
       image_gallery && image_gallery.length > 0 && (
-        <ImageSlider client:load images={image_gallery} />
+        <ImageGallery client:load images={image_gallery} />
       )
     }
 

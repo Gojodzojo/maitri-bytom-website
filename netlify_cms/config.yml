@@ -1,4 +1,5 @@
 locale: 'pl'
+logo_url: https://raw.githubusercontent.com/Gojodzojo/maitri-bytom-website/main/page/public/Logo-Maitri.png
 
 backend:
   name: github
@@ -17,8 +18,7 @@ collections: # A list of collections the CMS should be able to edit
       - {label: "Tytuł", name: "title", widget: "string"}
       - {label: "Pozycja na pasku", name: "position", widget: "number", min: 1}
       - {label: "Czy szkic? (nie będzie widoczny na stronie)", name: "draft", widget: "boolean", default: true }
-      - {label: "Treść", name: "body", widget: "markdown"}
-      - {label: "Galeria zdjęć", name: "image_gallery", widget: "list", required: false, summary: '{{fields.image}}', collapsed: true, label_singular: "zdjęcie", field: {label: "Zdjęcie", name: image, widget: image}}
+      - {label: "Treść", name: "body", widget: "markdown", editor_components: ["zoomable-img", "image-gallery"]}
 
   - name: "aktualnosci"
     label: "Aktualności"
@@ -31,8 +31,7 @@ collections: # A list of collections the CMS should be able to edit
       - {label: "Autor", name: "author", widget: "string"}
       - {label: "Czy szkic? (nie będzie widoczny na stronie)", name: "draft", widget: "boolean", default: true }
       - {label: "Tagi oddzielone przecinkiem", name: "tags", widget: "list"}
-      - {label: "Treść", name: "body", widget: "markdown"}
-      - {label: "Galeria zdjęć", name: "image_gallery", widget: "list", required: false, summary: '{{fields.image}}', collapsed: true, label_singular: "zdjęcie", field: {label: "Zdjęcie", name: image, widget: image}}
+      - {label: "Treść", name: "body", widget: "markdown", editor_components: ["zoomable-img", "image-gallery"]}
 
   - name: "sekcje_stopki"
     label: "Sekcje stopki"
@@ -42,7 +41,7 @@ collections: # A list of collections the CMS should be able to edit
       - {label: "Tytuł", name: "title", widget: "string"}
       - {label: "Pozycja w stopce", name: "position", widget: "number", min: 1}
       - {label: "Czy szkic? (nie będzie widoczny na stronie)", name: "draft", widget: "boolean", default: true }
-      - {label: "Treść", name: "body", widget: "markdown"}
+      - {label: "Treść", name: "body", widget: "markdown", editor_components: []}
 
   - name: "strona_glowna"
     label: "Strona główna"
@@ -53,7 +52,7 @@ collections: # A list of collections the CMS should be able to edit
       fields: 
         - {label: "Galeria zdjęć", name: "image_gallery", widget: "list", required: false, summary: '{{fields.image}}', collapsed: true, label_singular: "zdjęcie", field: {label: "Zdjęcie", name: image, widget: image}}
         - {label: "Tytuł", name: "title", widget: "string"}
-        - {label: "Treść", name: "body", widget: "markdown"}
+        - {label: "Treść", name: "body", widget: "markdown", editor_components: ["zoomable-img", "image-gallery"]}
   
   - name: "instrukcja"
     label: "Instrukcja"
@@ -63,4 +62,4 @@ collections: # A list of collections the CMS should be able to edit
       label: "Instrukcja"
       fields: 
         - {label: "Tytuł", name: "title", widget: "string"}
-        - {label: "Treść", name: "body", widget: "markdown"}
+        - {label: "Treść", name: "body", widget: "markdown", editor_components: ["zoomable-img", "image-gallery"]}

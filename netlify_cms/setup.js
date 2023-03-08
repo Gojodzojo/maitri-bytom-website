@@ -1,27 +1,17 @@
+const { cssFiles, webComponentsUrl } = window.config
+
 const netlifyCmsScript = document.createElement("script")
 document.body.appendChild(netlifyCmsScript)
 
 netlifyCmsScript.onload = async function () {
-    const cssFiles = [
-        "https://raw.githubusercontent.com/Gojodzojo/maitri-bytom-website/main/page/src/styles/global.css",
-    ]
-
     cssFiles.forEach(css_url => {
         fetch(css_url)
             .then(css => css.text())
             .then(css => CMS.registerPreviewStyle(css, { raw: true }))
     })
 
-    const webComponents = [
-        "http://localhost:8000/proxy?path=http://www.bytom.maitri.pl/web_components/ZoomableImg.js"
-    ]
-
-    const webComponentsCodesPromises = webComponents.map(async (url) => {
-        const code = await fetch(url)
-        return await code.text()
-    })
-
-    const webComponentsCodes = await Promise.all(webComponentsCodesPromises)
+    const webComponentsRes = await fetch(webComponentsUrl)
+    const webComponentsCode = await webComponentsRes.text()
 
     let getAsset
     const PostPreview = createClass({
@@ -29,8 +19,9 @@ netlifyCmsScript.onload = async function () {
             console.log("Setting up preview window")
 
             getAsset = this.props.getAsset
+
             const previewWindow = this.props.window
-            webComponentsCodes.forEach(previewWindow.eval)
+            previewWindow.eval(webComponentsCode)
 
             return null
         },
@@ -72,8 +63,8 @@ netlifyCmsScript.onload = async function () {
 
     collections.forEach(collection => CMS.registerPreviewTemplate(collection, PostPreview))
 
-    const imageWidget = {
-        id: "zoomable-image",
+    const zoomableImgWidget = {
+        id: "zoomable-img",
         label: "Zdjęcie",
         collapsed: true,
         fields: [
@@ -103,7 +94,44 @@ netlifyCmsScript.onload = async function () {
         }
     }
 
-    CMS.registerEditorComponent(imageWidget)
+    CMS.registerEditorComponent(zoomableImgWidget)
+
+    const imageGalleryWidget = {
+        id: "image-gallery",
+        label: "Galeria zdjęć",
+        collapsed: true,
+        fields: [
+            {
+                label: "Zdjęcia",
+                name: "images",
+                widget: "list",
+                summary: '{{fields.image}}',
+                collapsed: false,
+                label_singular: "zdjęcie",
+                field: { label: "Zdjęcie", name: "image", widget: "image" }
+            }
+        ],
+        pattern: /<image-gallery images='(.*?)' \/>/m,
+        fromBlock: function (match) {
+            return {
+                images: JSON.parse(match[1]),
+            };
+        },
+        toBlock: function ({ images = [] }) {
+            images = images.filter(img => typeof img === "string")
+
+            return `<image-gallery images='${JSON.stringify(images)}' />`;
+        },
+        toPreview: function ({ images = [] }) {
+            images = images
+                .filter(img => typeof img === "string")
+                .map(img => getAsset(img).url)
+
+            return `<image-gallery images='${JSON.stringify(images)}' />`;
+        }
+    }
+
+    CMS.registerEditorComponent(imageGalleryWidget)
 }
 
 netlifyCmsScript.src = "https://unpkg.com/netlify-cms/dist/netlify-cms.js"

@@ -5,7 +5,15 @@
 </head>
 
 <body>
-    <script async>
+    <script>
+        window.config = {
+            cssFiles: [
+                "https://raw.githubusercontent.com/Gojodzojo/maitri-bytom-website/main/page/src/styles/global.css",
+            ],
+            webComponentsUrl: "http://localhost:8000/proxy?path=http://www.bytom.maitri.pl/web_components/ZoomableImg.js",
+        }
+    </script>
+    <script>
         fetch("https://raw.githubusercontent.com/Gojodzojo/maitri-bytom-website/main/netlify_cms/setup.js")
             .then(js => js.text())
             .then(js => {
@@ -13,6 +21,5 @@
                 document.body.appendChild(setupScript)
                 setupScript.innerHTML = js
             })
-
     </script>
 </body>
