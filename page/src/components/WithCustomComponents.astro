@@ -1,0 +1,45 @@
+---
+import { parseTagProps } from "$netlify_cms/tagUtils";
+import ZoomableImg from "$web_components/ZoomableImg.svelte";
+import ImageGallery from "$web_components/ImageGallery.svelte";
+
+interface Props {
+    compiledContent: string;
+}
+
+const customComponentsNames = ["img", "image-gallery"];
+const tagNamesAlternatives = customComponentsNames.join("|");
+
+const { compiledContent } = Astro.props;
+let splittedContent = [compiledContent];
+
+customComponentsNames.forEach((componentName) => {
+    const customTagRegexp = new RegExp(`(<${componentName}.*?>)`, "g");
+    splittedContent = splittedContent.flatMap((content) =>
+        content.split(customTagRegexp)
+    );
+});
+---
+
+{
+    splittedContent.map((s) => {
+        const customTagPropertiesRegexp = new RegExp(
+            `<(${tagNamesAlternatives}) (.*?)>`,
+            "g"
+        );
+        const result = customTagPropertiesRegexp.exec(s);
+
+        if (!result) return <Fragment set:html={s} />;
+
+        const [_, tagName, tagProps] = result;
+        const parsedProps = parseTagProps(tagProps);
+
+        if (tagName == "img")
+            return <ZoomableImg {...parsedProps} client:visible />;
+
+        if (tagName == "image-gallery")
+            return <ImageGallery {...parsedProps} client:visible />;
+
+        return <Fragment set:html={s} />;
+    })
+}

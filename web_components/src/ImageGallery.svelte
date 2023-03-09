@@ -2,12 +2,13 @@
 
 <script lang="ts">
     import TransitioningImg from "./TransitioningImg.svelte";
+    import { specialParse } from "$netlify_cms/tagUtils";
 
-    export let images: string[] | string;
+    export let images: string[] | string = [];
     const isNotWebComponent = customElements.get("image-gallery") === undefined;
 
     $: imagesArray = (
-        typeof images === "object" ? images : JSON.parse(images)
+        typeof images === "object" ? images : specialParse(images)
     ) as string[];
 
     let currentImageIndex = 0;

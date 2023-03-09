@@ -1,7 +1,6 @@
 ---
 title: Kontakt
 position: 5
-image_gallery: []
 ---
 Prawnym organem wspólnoty Ruchu Maitri w Bytomiu jest\
 **STOWARZYSZENIE ADOPCJI SERCA MAITRI**\

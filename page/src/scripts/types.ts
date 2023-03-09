@@ -4,7 +4,6 @@ export interface HeaderPageFrontmatter {
     title: string;
     position: number;
     draft: boolean;
-    image_gallery: string[];
 }
 
 export interface NewsFrontmatter {
@@ -14,7 +13,6 @@ export interface NewsFrontmatter {
     author: string;
     draft: boolean;
     tags: string[];
-    image_gallery: string[];
 }
 
 export interface FooterSectionFrontmatter {
@@ -25,13 +23,11 @@ export interface FooterSectionFrontmatter {
 
 export interface IndexFrontmatter {
     title: string;
-    image_gallery: string[];
 }
 
 export interface InstructionFrontmatter {
     title: string;
     position: number;
-    image_gallery: string[];
 }
 
 // https://stackoverflow.com/questions/55904032/how-to-get-optional-property-from-union

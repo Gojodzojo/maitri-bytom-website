@@ -1,9 +1,8 @@
 ---
 import Base from "./Base.astro";
-import ImageGallery from "$web_components/ImageGallery.svelte";
 import type { ArticleMarkdown } from "$scripts/types";
 import { makeDescription } from "$scripts/makeDescription";
-import ZoomableImg from "$web_components/ZoomableImg.svelte";
+import WithCustomComponents from "$components/WithCustomComponents.astro";
 
 interface Props {
   markdown: ArticleMarkdown;
@@ -11,26 +10,7 @@ interface Props {
 
 const { markdown } = Astro.props;
 const { frontmatter, compiledContent } = markdown;
-const { title, date, author, image_gallery, tags } = frontmatter;
-
-const splittedContent = compiledContent().split(/(<img.*?>)/g);
-
-function getTagProperties(s: string) {
-  const tagPropertyNameRegex = /(?<=\s)(.*?)(?==")/g;
-  const tagPropertyValueRegex = /(?<==")(.*?)(?=")/g;
-
-  let tagPropertyName: RegExpExecArray;
-  let tagPropertyValue: RegExpExecArray;
-  let properties: Record<string, string> = {};
-  while (
-    (tagPropertyName = tagPropertyNameRegex.exec(s)!) &&
-    (tagPropertyValue = tagPropertyValueRegex.exec(s)!)
-  ) {
-    properties[tagPropertyName[0]] = tagPropertyValue[0];
-  }
-
-  return properties;
-}
+const { title, date, author, tags } = frontmatter;
 ---
 
 <Base title={title} description={makeDescription(compiledContent())}>
@@ -47,25 +27,7 @@ function getTagProperties(s: string) {
       )
     }
 
-    {
-      splittedContent.map((s) => {
-        if (!s.includes("<img")) return <Fragment set:html={s} />;
-
-        // CustomImg must be wrapped in div because
-        // otherwise it is duplicated for some reason
-        return (
-          <div>
-            <ZoomableImg {...getTagProperties(s)} client:load />
-          </div>
-        );
-      })
-    }
-
-    {
-      image_gallery && image_gallery.length > 0 && (
-        <ImageGallery client:load images={image_gallery} />
-      )
-    }
+    <WithCustomComponents compiledContent={compiledContent()} />
 
     {
       tags && tags.length > 0 && (

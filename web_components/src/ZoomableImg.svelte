@@ -2,7 +2,7 @@
 
 <script lang="ts">
     import { fade } from "svelte/transition";
-    export let src: string | undefined = undefined;
+    export let src: string | undefined = "";
     export let title: string | undefined = undefined;
 
     let is_opened = false;

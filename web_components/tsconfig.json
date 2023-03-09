@@ -22,6 +22,9 @@
       "$web_components/*": [
         "src/*"
       ],
+      "$netlify_cms/*": [
+        "../netlify_cms/*"
+      ],
       "$layouts/*": [
         "../page/src/layouts/*"
       ],

@@ -9,6 +9,9 @@
       "$web_components/*": [
         "../web_components/src/*"
       ],
+      "$netlify_cms/*": [
+        "../netlify_cms/*"
+      ],
       "$layouts/*": [
         "src/layouts/*"
       ],

@@ -1,9 +1,13 @@
-const { cssFiles, webComponentsUrl } = window.config
-
 const netlifyCmsScript = document.createElement("script")
 document.body.appendChild(netlifyCmsScript)
 
 netlifyCmsScript.onload = async function () {
+    const { cssFiles, webComponentsUrl, tagUtilsUrl } = window.config
+
+    const tagUtilsResp = await fetch(tagUtilsUrl)
+    const tagUtilsText = await tagUtilsResp.text()
+    const { parseTagProps, specialParse, specialStringify } = await import('data:text/javascript;base64,' + btoa(tagUtilsText))
+
     cssFiles.forEach(css_url => {
         fetch(css_url)
             .then(css => css.text())
@@ -79,18 +83,15 @@ netlifyCmsScript.onload = async function () {
                 widget: 'string'
             }
         ],
-        pattern: /<img src="(.*?)" title="(.*?)" \/>/m,
+        pattern: /<img (.*?)>/m,
         fromBlock: function (match) {
-            return {
-                src: match[1],
-                title: match[2]
-            };
+            return parseTagProps(match[1])
         },
         toBlock: function ({ src = "", title = "" }) {
-            return `<img src="${src}" title="${title}" />`;
+            return `<img src="${src}" title="${title}">`;
         },
         toPreview: function ({ src, title }) {
-            return `<zoomable-img src="${getAsset(src).url}" title="${title}" />`
+            return `<zoomable-img src="${getAsset(src).url}" title="${title}">`
         }
     }
 
@@ -111,23 +112,27 @@ netlifyCmsScript.onload = async function () {
                 field: { label: "Zdjęcie", name: "image", widget: "image" }
             }
         ],
-        pattern: /<image-gallery images='(.*?)' \/>/m,
+        pattern: /<image-gallery (.*?)>/m,
         fromBlock: function (match) {
-            return {
-                images: JSON.parse(match[1]),
-            };
+            let props = parseTagProps(match[1])
+
+            if (props.images) {
+                props.images = specialParse(props.images)
+            }
+
+            return props
         },
         toBlock: function ({ images = [] }) {
             images = images.filter(img => typeof img === "string")
 
-            return `<image-gallery images='${JSON.stringify(images)}' />`;
+            return `<image-gallery images="${specialStringify(images)}">`;
         },
         toPreview: function ({ images = [] }) {
             images = images
                 .filter(img => typeof img === "string")
                 .map(img => getAsset(img).url)
 
-            return `<image-gallery images='${JSON.stringify(images)}' />`;
+            return `<image-gallery images="${specialStringify(images)}">`;
         }
     }
 
