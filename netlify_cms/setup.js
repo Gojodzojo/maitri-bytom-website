@@ -48,11 +48,20 @@ netlifyCmsScript.onload = async function () {
                 authorAndDate = ''
             }
 
+            let articleTags
+            try {
+                const tags = this.props.widgetFor("tags").props.value._tail.array
+                articleTags = h(`article-tags`, { tags: specialStringify(tags) })
+            } catch (error) {
+                articleTags = ''
+            }
 
-            return h('div', {},
+
+            return h('article', {},
                 h('h1', {}, getText('title')),
                 authorAndDate,
                 h('div', {}, this.props.widgetFor('body')),
+                articleTags,
             );
         }
     });

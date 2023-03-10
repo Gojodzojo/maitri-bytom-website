@@ -3,6 +3,7 @@ import Base from "./Base.astro";
 import type { ArticleMarkdown } from "$scripts/types";
 import { makeDescription } from "$scripts/makeDescription";
 import WithCustomComponents from "$components/WithCustomComponents.astro";
+import ArticleTags from "$components/ArticleTags.svelte";
 
 interface Props {
   markdown: ArticleMarkdown;
@@ -29,32 +30,11 @@ const { title, date, author, tags } = frontmatter;
 
     <WithCustomComponents compiledContent={compiledContent()} />
 
-    {
-      tags && tags.length > 0 && (
-        <h4 class="tags">
-          Tagi:
-          {tags.sort().map((tag, index) => (
-            <>
-              <a href={`/tag/${tag}/1`}>{tag}</a>
-              {index !== tags.length - 1 && <span>, </span>}
-            </>
-          ))}
-        </h4>
-      )
-    }
+    {tags && <ArticleTags tags={tags} />}
   </article>
 </Base>
 <style>
   article {
     padding: var(--vertical-page-margin) var(--horizontal-page-margin);
-  }
-
-  .tags a {
-    transition: color 0.2s;
-    color: black;
-  }
-
-  .tags a:hover {
-    color: var(--highlight-color);
   }
 </style>

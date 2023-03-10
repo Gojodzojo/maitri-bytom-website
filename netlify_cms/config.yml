@@ -30,7 +30,7 @@ collections: # A list of collections the CMS should be able to edit
       - {label: "Data publikacji", name: "date", widget: "datetime", date_format: "DD-MM-YYYY", time_format: false}
       - {label: "Autor", name: "author", widget: "string"}
       - {label: "Czy szkic? (nie będzie widoczny na stronie)", name: "draft", widget: "boolean", default: true }
-      - {label: "Tagi oddzielone przecinkiem", name: "tags", widget: "list"}
+      - {label: "Tagi", name: "tags", widget: "list", summary: '{{fields.tag}}', collapsed: true, label_singular: "tag", field: {label: "Tag", name: tag, widget: string, default: ""}}
       - {label: "Treść", name: "body", widget: "markdown", editor_components: ["zoomable-img", "image-gallery"]}
 
   - name: "sekcje_stopki"

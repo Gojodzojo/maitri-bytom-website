@@ -7,6 +7,10 @@ export default defineConfig({
   resolve: {
     alias: [
       {
+        find: "$components",
+        replacement: path.resolve(__dirname, "../page/src/components")
+      },
+      {
         find: "$netlify_cms",
         replacement: path.resolve(__dirname, "../netlify_cms")
       }
