@@ -1,11 +1,33 @@
 ---
-import Article from "$layouts/Article.astro";
 import type { IndexFrontmatter } from "$scripts/types";
 import type { MarkdownInstance } from "astro";
+import Base from "$layouts/Base.astro";
+import AutomaticImageGallery from "$components/AutomaticImageGallery.svelte";
+import { makeDescription } from "$scripts/makeDescription";
+import WithCustomComponents from "$components/WithCustomComponents.astro";
 
 const markdown = (
     await Astro.glob("../markdown/index.md")
 )[0] as MarkdownInstance<IndexFrontmatter>;
+
+const { frontmatter, compiledContent } = markdown;
+const { title, slides, slide_interval } = frontmatter;
 ---
 
-<Article markdown={markdown} />
+<Base title={title} description={makeDescription(compiledContent())}>
+    <AutomaticImageGallery
+        slides={slides}
+        interval={slide_interval}
+        client:load
+    />
+
+    <article>
+        <WithCustomComponents compiledContent={compiledContent()} />
+    </article>
+</Base>
+
+<style>
+    article {
+        padding: var(--vertical-page-margin) var(--horizontal-page-margin);
+    }
+</style>

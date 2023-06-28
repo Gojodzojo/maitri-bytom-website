@@ -57,7 +57,8 @@ main {
     width: 100%;
 }
 
-.frame-content {
+/* For preview window in cms */
+.content {
     padding: var(--vertical-page-margin) var(--horizontal-page-margin);
 }
 

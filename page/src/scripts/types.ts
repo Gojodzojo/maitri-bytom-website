@@ -21,8 +21,15 @@ export interface FooterSectionFrontmatter {
     draft: boolean;
 }
 
+export interface Slide {
+    text: string,
+    image: string
+}
+
 export interface IndexFrontmatter {
     title: string;
+    slide_interval: number;
+    slides: Slide[];
 }
 
 export interface InstructionFrontmatter {

@@ -50,7 +50,8 @@ collections: # A list of collections the CMS should be able to edit
       name: "strona_glowna"
       label: "Strona główna"
       fields: 
-        - {label: "Galeria zdjęć", name: "image_gallery", widget: "list", required: false, summary: '{{fields.image}}', collapsed: true, label_singular: "zdjęcie", field: {label: "Zdjęcie", name: image, widget: image}}
+        - {label: "Slajdy", name: "slides", widget: "list", required: true, summary: '{{fields.image}}', collapsed: true, label_singular: "slajd", fields: [{label: "Zdjęcie", name: image, widget: image}, {label: "Tekst", name: text, widget: string}]}
+        - {label: "Interwał slajdów (ms)", name: slide_interval, widget: number, default: "5000", min: 1}
         - {label: "Tytuł", name: "title", widget: "string"}
         - {label: "Treść", name: "body", widget: "markdown", editor_components: ["zoomable-img", "image-gallery"]}
   

@@ -31,6 +31,8 @@ netlifyCmsScript.onload = async function () {
         },
 
         render: function () {
+            const collectionName = this.props.entry._root.nodes[11].nodes[1].entry[1]
+
             const getText = (field) => {
                 const children = this.props.widgetFor(field).props.value.props.children
                 return typeof children === "object" ? children[2] : children
@@ -56,13 +58,47 @@ netlifyCmsScript.onload = async function () {
                 articleTags = ''
             }
 
+            let slides = ''
+            if (collectionName == "strona_glowna") {
+                let slidesArray
+                let interval
+                try {
+                    slidesArray = this.props.widgetFor("slides").props.value._tail.array
+                    interval = getText("slide_interval")
+                } catch (error) {
+                    slidesArray = []
+                    interval = 1000
+                }
 
-            return h('article', {},
-                h('h1', {}, getText('title')),
-                authorAndDate,
-                h('div', {}, this.props.widgetFor('body')),
-                articleTags,
-            );
+                let slidesProps = slidesArray.map(slide => {
+                    if (!slide._root) return {}
+
+                    let props = {
+                        image: "",
+                        text: "",
+                    }
+
+                    slide._root.entries.forEach(([propName, propValue]) => {
+                        props[propName] = propValue
+                    })
+
+                    props.image = getAsset(props.image).url;
+
+                    return props
+                })
+
+                slides = h(`automatic-image-gallery`, { interval, slides: specialStringify(slidesProps) })
+            }
+
+            return h("div", {},
+                slides,
+                h('article', { className: "content" },
+                    h('h1', {}, getText('title')),
+                    authorAndDate,
+                    h('div', {}, this.props.widgetFor('body')),
+                    articleTags
+                )
+            )
         }
     });
 
@@ -148,4 +184,4 @@ netlifyCmsScript.onload = async function () {
     CMS.registerEditorComponent(imageGalleryWidget)
 }
 
-netlifyCmsScript.src = "https://unpkg.com/netlify-cms/dist/netlify-cms.js"
+netlifyCmsScript.src = "https://unpkg.com/netlify-cms@2.10.192/dist/netlify-cms.js"

@@ -3,7 +3,7 @@
         "./*"
     ],
     "scripts": {
-        "cms": "cd netlify_cms && sfz",
+        "cms": "cd netlify_cms && cms_server",
         "dev": "npm run dev --workspace page",
         "build": "npm run build --workspace page && npm run build --workspace web_components"
     }

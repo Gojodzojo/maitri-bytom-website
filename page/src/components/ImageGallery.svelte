@@ -1,13 +1,12 @@
 <svelte:options tag="image-gallery" />
 
 <script lang="ts">
-    import TransitioningImg from "./TransitioningImg.svelte";
     import { specialParse } from "$netlify_cms/tagUtils";
+    import { fade } from "svelte/transition";
 
     export let images: string[] | string = [];
-    const isNotWebComponent = customElements.get("image-gallery") === undefined;
 
-    $: imagesArray = (
+    const imagesArray = (
         typeof images === "object" ? images : specialParse(images)
     ) as string[];
 
@@ -23,11 +22,9 @@
 </script>
 
 <div>
-    {#if isNotWebComponent}
-        <TransitioningImg {src} />
-    {:else}
-        <transitioning-img {src} />
-    {/if}
+    {#key src}
+        <img transition:fade={{ duration: 500 }} {src} alt="" />
+    {/key}
 
     <button style="left: 0;" on:click={() => currentImageIndex--}>
         &laquo;
@@ -47,10 +44,17 @@
         margin-top: 50px;
     }
 
+    img {
+        position: absolute;
+        object-fit: contain;
+        width: 100%;
+        height: 100%;
+    }
+
     button {
         position: absolute;
         top: 50%;
-        transform: translateY(-50%);
+        transform: translateY(-75%);
         background-color: white;
         border: none;
         padding: 10px;
