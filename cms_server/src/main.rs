@@ -1,9 +1,10 @@
 use rocket::{
+    fs::FileServer,
     http::ContentType,
     response::{self, Responder},
     Request, Response,
 };
-use std::{io::Cursor, str::FromStr};
+use std::{env::current_dir, io::Cursor, str::FromStr};
 
 struct Res {
     text: String,
@@ -57,5 +58,11 @@ async fn proxy(path: String) -> Option<Res> {
 #[rocket::launch]
 fn rocket() -> _ {
     println!("Wejdź na stronę localhost:8000");
-    rocket::build().mount("/", rocket::routes![proxy, index])
+    println!();
+
+    let _ = webbrowser::open("http://localhost:8000");
+
+    rocket::build()
+        .mount("/", FileServer::from(current_dir().unwrap()))
+        .mount("/", rocket::routes![proxy, index])
 }
