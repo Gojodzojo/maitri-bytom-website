@@ -70,8 +70,9 @@ netlifyCmsScript.onload = async function () {
                     interval = 1000
                 }
 
-                let slidesProps = slidesArray.map(slide => {
-                    if (!slide._root) return {}
+                let slidesProps = []
+                slidesArray.forEach(slide => {
+                    if (!(slide?._root)) return
 
                     let props = {
                         image: "",
@@ -84,7 +85,7 @@ netlifyCmsScript.onload = async function () {
 
                     props.image = getAsset(props.image).url;
 
-                    return props
+                    slidesProps.push(props)
                 })
 
                 slides = h(`automatic-image-gallery`, { interval, slides: specialStringify(slidesProps) })
@@ -93,7 +94,7 @@ netlifyCmsScript.onload = async function () {
             return h("div", {},
                 slides,
                 h('article', { className: "content" },
-                    h('h1', {}, getText('title')),
+                    collectionName == "strona_glowna" ? "" : h('h1', {}, getText('title')),
                     authorAndDate,
                     h('div', {}, this.props.widgetFor('body')),
                     articleTags

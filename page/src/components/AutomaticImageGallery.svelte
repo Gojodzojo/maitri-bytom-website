@@ -10,14 +10,23 @@
     export let slides: Slide[] | string = [];
 
     const fadeSettings = { duration: 1000 };
+    const isWebComponent =
+        customElements.get("automatic-image-gallery") !== undefined;
 
     $: slidesArray = (
         typeof slides === "object" ? slides : specialParse(slides)
     ) as Slide[];
 
-    let currentImageIndex = 0;
+    // There is a bug which breaks transitions when web component
+    //  with transition gets added to preview immediatelly
+    let currentImageIndex = isWebComponent ? -1 : 0;
+
     $: image = slidesArray[currentImageIndex]?.image || "";
     $: text = slidesArray[currentImageIndex]?.text || "";
+
+    $: if (currentImageIndex >= slidesArray.length) {
+        currentImageIndex = 0;
+    }
 
     function changeSlide() {
         if (slidesArray.length !== 0) {
@@ -35,17 +44,19 @@
     onDestroy(() => clearInterval(intervalId));
 </script>
 
-<div class="automatic-image-gallery">
-    {#key image}
-        <img transition:fade={fadeSettings} src={image} alt="" />
-    {/key}
-
-    <div class="cover">
-        {#key text}
-            <h1 transition:fade={fadeSettings}>{text}</h1>
+{#if currentImageIndex !== -1}
+    <div class="automatic-image-gallery">
+        {#key image}
+            <img src={image} alt="" transition:fade={fadeSettings} />
         {/key}
+
+        <div class="cover">
+            {#key text}
+                <h1 transition:fade={fadeSettings}>{text}</h1>
+            {/key}
+        </div>
     </div>
-</div>
+{/if}
 
 <style>
     .automatic-image-gallery {
