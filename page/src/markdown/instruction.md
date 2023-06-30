@@ -7,11 +7,11 @@ By móc edytować treści zamieszczone na stronie <http://www.bytom.maitri.pl>, 
 By to zrobić, należy przejść do strony <https://github.com/join>. W pierwszym polu należy wpisać **nazwę użytkownika**, w drugim swój **adres e-mail**, a w trzecim **hasło**.\
 Poniżej znajduje się pole wyboru do oznaczania. Nie należy go zaznaczać by nie otrzymywać zbędnego spamu. Następnie trzeba rozwiązać zagadkę poniżej. Po jej rozwiązaniu trzeba kliknąć **zielony przycisk**, aby utworzyć konto.
 
-<img src="/img/image12.png" title="bbb">
+<img src="/img/image12.png" title="">
 
 Otworzy się strona na której trzeba będzie wpisać kod aktywacyjny wysłany w wiadomości na nasz adres e-mail. **Należy jej dokładnie poszukać**, bo jest możliwe, że wyląduje w sekcji ze spamem.
 
-<img src="/img/image5.png" title="ddd">
+<img src="/img/image5.png" title="">
 
 By aktywować konto należy albo przepisać numer wysłany w mailu do powyższej strony, albo kliknąć niebieski link wysłany w mailu.
 
@@ -33,47 +33,21 @@ N﻿astępnie należy zaakceptować zaproszenie przez kliknięcie przycisku **Jo
 
 <img src="/img/img-20221127-wa0000.jpg" title="">
 
+### Pobieranie edytora strony
 
+Po rejestracji konta należy pobrać program **Edytor Strony Maitri Bytom.exe** ze strony <http://www.bytom.maitri.pl/Edytor%20Strony%20Maitri%20Bytom.exe>
 
-### Instalacja edytora strony
-
-Po rejestracji konta należy pobrać plik **maitri_bytom_strona.zip** ze strony <http://www.bytom.maitri.pl/maitri_bytom_strona.zip>, przenieść go na pulpit, kliknąć go prawym przyciskiem myszy i wybrać opcję **wyodrębnij wszystkie**.
-
-<img src="/img/image3.png" title="">
-
-Następnie pojawi się okno w którym należy kliknąć przycisk **Wyodrębnij**.
-
-<img src="/img/image17.png" title="">
-
-Na pulpicie zostanie utworzony folder **maitri_bytom_strona** i zostanie on automatycznie otwarty.
-
-<img src="/img/image18.png" title="">
-
-Ponieważ plik **maitri_bytom_strona.zip** nie będzie już potrzebny, można go usunąć klikając na niego prawym przyciskiem myszy i wybierając opcję **usuń**
-
-<img src="/img/image6.png" title="">
-
-### Uruchomienie edytora i edytowanie strony
-
-Wszystkie czynności z poprzednich punktów wystarczy wykonać tylko raz. Czynności o których piszę poniżej trzeba wykonać przy każdym uruchomieniu edytora.
-
-By uruchomić edytor strony należy uruchomić program **sfz.exe** znajdujący się w folderze **maitri_bytom_strona**. Prawdopodobnie pojawi się wtedy ostrzeżenie, że plik pochodzi z nieznanego źródła.
+Po uruchomieniu programu prawdopodobnie pojawi się ostrzeżenie, że plik pochodzi z nieznanego źródła.
 
 <img src="/img/image2.png" title="">
 
 Nie należy się tego obawiać, ponieważ sprawdzałem już wcześniej ten program i nie był zainfekowany wirusem. By go uruchomić należy kliknąć **Więcej informacji** a następnie **Uruchom mimo to**.
 
-Po uruchomieniu programu można go zminimalizować. Nie musi być on na widoku, ale musi być cały czas uruchomiony w czasie edytowania strony.
+Po uruchomieniu programu pojawi się czarne okienko z tekstem. Można je zminimalizować ale musi być cały czas uruchomiony w czasie edytowania strony.
 
-<img src="/img/image13.png" title="">
+<img src="/img/bez-tytułu.png" title="">
 
-Następnie należy uruchomić przeglądarkę internetową i wpisać w górnym pasku adres [localhost:5000](http://localhost:5000/) i kliknąć enter.
-
-Następnie należy kliknąć **index_proxy.html**
-
-<img src="/img/image10.png" title="">
-
-Pojawi się wtedy strona, na której trzeba kliknąć **Login with GitHub**. 
+Uruchomi się także przeglądarka internetowa na stronie [localhost:8000](http://localhost:8000/). Trzeba kliknąć **Login with GitHub**. 
 
 <img src="/img/image16.png" title="">
 
