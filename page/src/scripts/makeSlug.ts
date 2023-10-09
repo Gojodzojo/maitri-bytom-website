@@ -9,12 +9,13 @@ export function makeSlug(frontmatter: Record<string, any>) {
     // https://stackoverflow.com/questions/990904/remove-accents-diacritics-in-a-string-in-javascript
     const title: string = frontmatter
         .title
-        .split(' ')
-        .join('-')
         .toLowerCase()
         .normalize('NFD')
         .replace(/[\u0300-\u036f]/g, "")
         .replace(/\u0142/g, "l")
+        .replace(/[^a-zA-Z0-9 ]/g, "")
+        .split(' ')
+        .join('-')
     
     slug += title
 
