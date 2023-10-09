@@ -1,9 +1,9 @@
 ---
-title: Strona główna
+slides:
+  - image: /img/logo-maitri-1-700×239-px.png
+    text: Maitri
 slide_interval: 3000
-slides: 
-    - { image: /img/image2.png, text: "Lorem ipsum dolor sit amet" }
-    - { image: /img/image1.png, text: "consectetur adipiscing elit" }
+title: Strona główna
 ---
 
 # Pomagamy dzieciom w Afryce i na innych kontynentach
