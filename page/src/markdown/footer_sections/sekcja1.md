@@ -1,11 +1,9 @@
 ---
 title: Dane adresowe
 position: 1
+draft: false
 ---
-
-**Biuro koordynacyjne programu Adopcja Serca**
-
-Stowarzyszenie Ruchu MAITRI\
-Organizacja Pożytku Publicznego (OPP)\
-ul. ks. Józefa Zator Przytockiego 3
-80-245 Gdańsk
+**Ruch Adopcji Serca**\
+Parafia św. Jacka\
+ul. Matejki 1\
+41-902 Bytom skr. poczt. 78
