@@ -1,12 +1,7 @@
 ---
-title: Rachunki bankowe
+title: Rachunek bankowy
 position: 3
+draft: false
 ---
-
-**\-wpłaty w złotówkach:**\
-34 1240 1255 1111 0010 4395 6330\
+PeKaO S.A. 55 1240 1343 1111 0010 0590 8551\
 kurs sprzedaży €uro w Banku Pekao SA
-
-**\-wpłaty w €uro:**\
-PL 33 1160 2202 0000 0002 5567 7854\
-kod SWIFT: BIGBPLPW
