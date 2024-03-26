@@ -1,11 +1,10 @@
 ---
 title: Dane kontaktowe
 position: 2
+draft: false
 ---
+Tel: + 48 501 291 319\
+Tel: +48 885 933 173
 
-Tel: +48 58 520 30 50\
-Tel: +48 58 742 50 73\
-Tel: +48 58 743 51 01
-
-NIP: 9571048588\
-KRS: 0000364214
+Regon : 240051738\
+KRS: 0000229893
