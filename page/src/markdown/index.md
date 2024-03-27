@@ -1,9 +1,9 @@
 ---
 slides:
   - image: https://www.maitri.pl/wp-content/uploads/2021/03/slider-home1_50.jpg
-    text: Pomagamy biednym i potrzebującym
-  - image: https://www.maitri.pl/wp-content/uploads/2021/03/slider-home3_50.jpg
     text: Maitri
+  - image: https://www.maitri.pl/wp-content/uploads/2021/03/slider-home3_50.jpg
+    text: Pomagamy biednym i potrzebującym
 slide_interval: 6000
 title: Strona główna
 ---
