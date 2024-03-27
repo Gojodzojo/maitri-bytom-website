@@ -1,8 +1,10 @@
 ---
 slides:
-  - image: /img/logo-maitri-1-700×239-px.png
+  - image: https://www.maitri.pl/wp-content/uploads/2021/03/slider-home1_50.jpg
+    text: Pomagamy biednym i potrzebującym
+  - image: https://www.maitri.pl/wp-content/uploads/2021/03/slider-home3_50.jpg
     text: Maitri
-slide_interval: 3000
+slide_interval: 6000
 title: Strona główna
 ---
 # Pomagamy dzieciom w Afryce i na innych kontynentach
