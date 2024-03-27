@@ -82,6 +82,8 @@
         font-size: xx-large;
         line-height: normal;
         color: white;
+        width: 80%;
+        text-align: center;
     }
 
     img {
