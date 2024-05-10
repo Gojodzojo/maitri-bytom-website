@@ -3,7 +3,7 @@ image: /img/logo-maitri-1-700×239-px.png
 title: Światowy Dzień Chorych na Trąd
 date: 10-05-2024
 author: .
-draft: true
+draft: false
 tags:
   - trąd
   - MAITRI
