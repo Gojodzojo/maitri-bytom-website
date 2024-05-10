@@ -1,7 +1,7 @@
 ---
 image: /img/img-20240405-wa0005.jpg
 title: Spotkanie z Modestem (Rwanda)
-date: 10-05-2024
+date: 03-07-2024
 author: .
 draft: false
 tags:
