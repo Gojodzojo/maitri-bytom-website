@@ -1,7 +1,7 @@
 ---
 image: /img/img_20240323_224449.jpg
 title: Kongres Eucharystyczny w Dziecezji Gliwickiej
-date: 10-05-2024
+date: 05-01-2024
 author: .
 draft: false
 tags:
