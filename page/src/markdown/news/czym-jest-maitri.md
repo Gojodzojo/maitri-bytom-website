@@ -1,9 +1,9 @@
 ---
 image: /img/logo-maitri-1-700×239-px.png
 title: Spotkanie opłatkowe
-date: 20-01-2024
+date: 02-01-2024
 author: .
-draft: true
+draft: false
 tags:
   - Maitri
   - Afryka
