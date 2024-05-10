@@ -1,5 +1,5 @@
 ---
-image: /img/logo-maitri-1-700×239-px.png
+image: /img/img_20240323_224449.jpg
 title: Kongres Eucharystyczny w Dziecezji Gliwickiej
 date: 10-05-2024
 author: .
