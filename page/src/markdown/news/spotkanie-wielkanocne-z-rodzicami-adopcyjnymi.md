@@ -1,7 +1,7 @@
 ---
 image: /img/logo-maitri-1-700×239-px.png
 title: Spotkanie Wielkanocne z Rodzicami Adopcyjnymi
-date: 10-05-2024
+date: 05-01-2024
 author: .
 draft: false
 tags:
