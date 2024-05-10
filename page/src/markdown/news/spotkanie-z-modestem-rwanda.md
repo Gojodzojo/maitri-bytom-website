@@ -3,7 +3,7 @@ image: /img/logo-maitri-1-700×239-px.png
 title: Spotkanie z Modestem (Rwanda)
 date: 10-05-2024
 author: .
-draft: true
+draft: false
 tags:
   - MAITRI
   - Adopcja serca
