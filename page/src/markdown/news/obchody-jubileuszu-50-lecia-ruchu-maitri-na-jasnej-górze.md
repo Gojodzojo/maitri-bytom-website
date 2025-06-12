@@ -1,7 +1,7 @@
 ---
 image: /img/logo-maitri-1-700×239-px.png
 title: Obchody jubileuszu 50-lecia Ruchu "Maitri" na Jasnej Górze
-date: 12-06-2025
+date: 06-06-2025
 author: .
 draft: true
 tags:
