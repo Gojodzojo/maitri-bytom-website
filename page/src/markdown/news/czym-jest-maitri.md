@@ -1,7 +1,7 @@
 ---
 image: /img/logo-maitri-1-700×239-px.png
 title: Spotkanie opłatkowe
-date: 02-01-2024
+date: 12-12-2024
 author: .
 draft: false
 tags:
