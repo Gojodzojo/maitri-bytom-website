@@ -1,6 +1,6 @@
 ---
 image: /img/jasnagora.jpeg
-title: Obchody jubileuszu 50-lecia Ruchu "Maitri" na Jasnej Górze
+title: Zapowiedź obchodów jubileuszu 50-lecia Ruchu "Maitri" na Jasnej Górze
 date: 05-05-2025
 author: .
 draft: false
