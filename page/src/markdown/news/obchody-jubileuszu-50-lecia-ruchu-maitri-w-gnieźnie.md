@@ -1,6 +1,6 @@
 ---
 image: /img/gniezno.jpeg
-title: Obchody jubileuszu 50-lecia Ruchu "Maitri" w Gnieźnie
+title: Zapowiedź obchodów jubileuszu 50-lecia Ruchu "Maitri" w Gnieźnie
 date: 04-04-2025
 author: .
 draft: false
